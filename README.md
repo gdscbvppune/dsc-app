@@ -1,6 +1,6 @@
 # dsc
 
-A companion app for the website repository. Maintainers can maintain they&#x27;re website easily using this mobile app
+A mobile app to help update and manage your DSC website easily
 
 ## Getting Started
 
