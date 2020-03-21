@@ -196,6 +196,235 @@ class _AddEventState extends State<AddEvent> {
                   });
                 }
               ),
+               
+
+
+
+ SizedBox(
+                height: 32,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 32),
+                child: TextFormField(
+                  focusNode: eventDateFocusNode,
+                  autocorrect: false,
+                  controller: eventDateController,
+                  onChanged: (val){
+                    date = val;
+                  },
+                  onFieldSubmitted: (val){
+                    eventDateController.text = date;
+                  },
+                  onEditingComplete: (){
+                    eventDateFocusNode.unfocus();
+                    FocusScope.of(context).requestFocus(eventTimeFocusNode);
+                  },
+                  decoration: InputDecoration(
+                    suffix: Text(
+                      "*"
+                    ),
+                    suffixStyle: TextStyle(
+                      color: Colors.red
+                    ),
+                    hintText: "For eg. 2019-01-15",
+                    labelText: "Event Date"
+                  ),
+                  keyboardType: TextInputType.datetime,
+                  maxLines: null,
+                  textInputAction: TextInputAction.next,
+                  validator: (value){
+                    if(value.isEmpty){
+                      return 'This field is mandatory';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 32,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 32),
+                child: TextFormField(
+                  focusNode: eventTimeFocusNode,
+                  autocorrect: false,
+                  controller: eventTimeController,
+                  onChanged: (val){
+                    time = val;
+                  },
+                  onFieldSubmitted: (val){
+                    eventTimeController.text = time;
+                  },
+                  onEditingComplete: (){
+                    eventTimeFocusNode.unfocus();
+                    FocusScope.of(context).requestFocus(eventSpeakerFocusNode);
+                  },
+                  decoration: InputDecoration(
+                    suffix: Text(
+                      "*"
+                    ),
+                    suffixStyle: TextStyle(
+                      color: Colors.red
+                    ),
+                    hintText: "For eg. 4:00PM - 7:00PM",
+                    labelText: "Event Time"
+                  ),
+                  keyboardType: TextInputType.text,
+                  maxLines: null,
+                  textInputAction: TextInputAction.next,
+                  validator: (value){
+                    if(value.isEmpty){
+                      return 'This field is mandatory';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 32,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 32),
+                child: TextFormField(
+                  focusNode: eventSpeakerFocusNode,
+                  autocorrect: false,
+                  controller: eventSpeakerController,
+                  onChanged: (val){
+                    speaker = val;
+                  },
+                  onFieldSubmitted: (val){
+                    eventSpeakerController.text = speaker;
+                  },
+                  onEditingComplete: (){
+                    eventSpeakerFocusNode.unfocus();
+                    FocusScope.of(context).requestFocus(eventRegistrationLinkFocusNode);
+                  },
+                  decoration: InputDecoration(
+                    suffix: Text(
+                      "*"
+                    ),
+                    suffixStyle: TextStyle(
+                      color: Colors.red
+                    ),
+                    hintText: "For eg. Dewansh Rawat, a GDE on Flutter",
+                    labelText: "Event Speaker"
+                  ),
+                  keyboardType: TextInputType.text,
+                  textCapitalization: TextCapitalization.words,
+                  maxLines: null,
+                  textInputAction: TextInputAction.next,
+                  validator: (value){
+                    if(value.isEmpty){
+                      return 'This field is mandatory';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 32,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 32),
+                child: TextFormField(
+                  focusNode: eventRegistrationLinkFocusNode,
+                  autocorrect: false,
+                  controller: eventRegistrationLinkController,
+                  onChanged: (val){
+                    registerLink = val;
+                  },
+                  onFieldSubmitted: (val){
+                    eventRegistrationLinkController.text = registerLink;
+                  },
+                  onEditingComplete: (){
+                    eventRegistrationLinkFocusNode.unfocus();
+                    FocusScope.of(context).requestFocus(venueFocusNode);
+                  },
+                  decoration: InputDecoration(
+                    suffix: Text(
+                      "*"
+                    ),
+                    suffixStyle: TextStyle(
+                      color: Colors.red
+                    ),
+                    hintText: "For eg. http://bit.ly/registerForDSCSolChallenge",
+                    labelText: "Registration Link"
+                  ),
+                  keyboardType: TextInputType.url,
+                  textInputAction: TextInputAction.next,
+                  validator: (value){
+                    if(value.isEmpty){
+                      return 'This field is mandatory';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 32,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 32),
+                child: TextFormField(
+                  focusNode: venueFocusNode,
+                  autocorrect: false,
+                  controller: venueController,
+                  textCapitalization: TextCapitalization.words,
+                  onFieldSubmitted: (val){
+                    venueController.text = val;
+                  },
+                  onEditingComplete: (){
+                    venueFocusNode.unfocus();
+                  },
+                  decoration: InputDecoration(
+                    suffix: Text(
+                      "*"
+                    ),
+                    suffixStyle: TextStyle(
+                      color: Colors.red
+                    ),
+                    hintText: "For eg. College of Engineering, COEP",
+                    labelText: "Venue"
+                  ),
+                  keyboardType: TextInputType.text,
+                  textInputAction: TextInputAction.done,
+                  validator: (value){
+                    if(value.isEmpty){
+                      return 'This field is mandatory';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              RaisedButton.icon(
+                onPressed: (){
+                  getImage();
+                },
+                icon: Icon(Icons.photo_library),
+                label: Row(
+                  children: <Widget>[
+                    Text(
+                      "Pick from Gallery",
+                      style: GoogleFonts.openSans(
+                        fontSize: 18
+                      ),
+                    ),
+                    Text(
+                      "*",
+                      style: GoogleFonts.openSans(
+                        fontSize: 18,
+                        color: Colors.red
+                      ),
+                    )
+                  ],
+                )
+              ),
+              SizedBox(
+                height: 24,
+              )
               
             ],
           )
