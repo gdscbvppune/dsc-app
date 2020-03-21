@@ -79,6 +79,16 @@ class EventsPageState extends State<EventsPage>{
                                 context,
                                 MaterialPageRoute(
                                   builder: (BuildContext context) => EventDescription(
+                                    eventName: snapshot.data.documents[index]["title"],
+                                    eventDate: reframeDate(snapshot.data.documents[index]["date"]),
+                                    eventTimings: snapshot.data.documents[index]["time"],
+                                    speaker: snapshot.data.documents[index]["speaker"],
+                                    registrationLink: snapshot.data.documents[index]["link"],
+                                    desc: snapshot.data.documents[index]["desc"],
+                                    eventPosterURL: snapshot.data.documents[index]["eventPosterURL"],
+                                    featured: snapshot.data.documents[index]["featureEvent"],
+                                    venue: snapshot.data.documents[index]["venue"]
+
                                    
                                   )
                                 )
@@ -176,6 +186,8 @@ class EventsPageState extends State<EventsPage>{
             context,
             MaterialPageRoute(
               builder: (BuildContext context) => AddEvent(
+                pageTitle: "Add Event",
+                featured: "false",
                
               )
             )
