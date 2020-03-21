@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'addEvent.dart';
+import 'eventDescription.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 class EventsPage extends StatefulWidget{
@@ -11,6 +12,27 @@ class EventsPage extends StatefulWidget{
 }
 
 class EventsPageState extends State<EventsPage>{
+  String reframeDate(String text){
+    var x = text.split('-');
+    String date = "";
+    for(int i = x.length - 1; i > 0; i--){
+      date = date + x[i];
+      date = date + "/";
+    }
+    date = date + x[0];
+    return date;
+  }
+    Future<bool> checkDelete(DismissDirection direction) async {
+          return showDialog(context: context,
+        builder: (context)=>AlertDialog(title: Text("Do you want to delete this event"),
+        actions: <Widget>[
+          FlatButton(child: Text("Yes"),onPressed:()=> Navigator.pop(context,true) ,),
+          FlatButton(child: Text("No"),onPressed: ()=>Navigator.pop(context,false),)
+        ],
+        ),
+        
+        )?? false;
+      }
 
  
 
@@ -39,10 +61,28 @@ class EventsPageState extends State<EventsPage>{
                           key: Key(snapshot.data.documents[index].documentID),
                           background: Container(color: Colors.blue,),
                           onDismissed: (direction){
+                             Firestore.instance.collection("events").document(snapshot.data.documents[index].documentID).delete();
+                            FirebaseStorage.instance.ref().child("events").child(snapshot.data.documents[index]["title"]).delete();
+                            Scaffold.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  "Event deleted"
+                                )
+                              )
+                            );
                            
                           },
+                          confirmDismiss: (direction) => checkDelete(direction),
                           child: InkWell(
                             onTap: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) => EventDescription(
+                                   
+                                  )
+                                )
+                              );
                              
                             },
                             child: Card(
@@ -132,6 +172,15 @@ class EventsPageState extends State<EventsPage>{
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
+           Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) => AddEvent(
+               
+              )
+            )
+          );
+
          
         },
         child: Icon(Icons.add),
