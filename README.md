@@ -26,3 +26,18 @@ This project aims at making websites easier to manage. We at **DSC BVP Pune** no
 | **Portability**         | This Web-App can be used as a template by other Student Clubs                              |
 | **User Experience**     | User-friendly and reliable, as well as handy and easy to use                               |
 | **Powered by Firebase** | Cloud Firestore of Firebase provides solutions for storage issues                          |
+
+## Getting Started
+
+1. [Fork](https://github.com/dscbvppune/dsc/fork) our repository and clone it locally.
+2. Open the repo in [VSCode](https://code.visualstudio.com/) or [Android Studio](https://developer.android.com/studio).
+3. Open [Firebase Console](https://console.firebase.google.com/) and create a new project.
+4. Connect your web-app project, either for Android or iOS, with Firebase.
+5. For Android refer to Firebase docs: [Add Firebase to your Android project](https://firebase.google.com/docs/android/setup?authuser=0).
+6. For iOS refer to the Firebase docs: [Add Firebase to your iOS project](https://firebase.google.com/docs/ios/setup?authuser=0).
+7. Connect your phone to PC or MAC via USB.
+8. Build the application in the IDE which you use for Flutter development.
+9. or run `flutter run --release` on your console to build the app.
+10. Enter the gmail ID of your DSC(admin) account. Only this email will have the right to create, add or delete while for users they only have read access.
+11. Add details of your team members, events organized by your DSC and the Code of Conduct of your DSC.
+12. If you want to build the apk: Run `flutter build apk --release` (for Android users).
