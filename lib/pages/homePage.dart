@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -49,9 +50,6 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: <Widget>[
-              SizedBox(
-                height: 32,
-              ),
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
@@ -80,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                       Row(
                         children: <Widget>[
                           details["becomeMemberURL"].length > 0 ? blueRaisedButton("Become A Member", details["becomeMemberURL"]) : Text(""),
-                          VerticalDivider(),
+                          details["becomeMemberURL"].length > 0 ? VerticalDivider() : Text(""),
                           details["aboutDSCLink"].length > 0 ? cyanFlatButton("Learn More", details["aboutDSCLink"]) : Text(""),
                         ],
                       )
@@ -140,6 +138,7 @@ class _HomePageState extends State<HomePage> {
                       textStyleNormal("Live Viewing Parties", Alignment.center, TextAlign.center, 1.0, 20.0, FontWeight.normal, 0, 0, 0, 1.0),
                       textStyleNormal("\n", Alignment.centerLeft, TextAlign.left, 1.0, 10.0, FontWeight.normal, 0, 0, 0, 0.0),
                       textStyleNormal("Share knowledge in different Companies, colleges and universities", Alignment.center, TextAlign.center, 1.0, 15.0, FontWeight.normal, 0, 0, 0, 1.0),
+                      textStyleNormal("\n", Alignment.centerLeft, TextAlign.left, 1.0, 10.0, FontWeight.normal, 0, 0, 0, 0.0),
                     ],
                   ),
                 ),
@@ -148,103 +147,109 @@ class _HomePageState extends State<HomePage> {
               Card(
                 color: Color(0xFF4c4a78),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 18,
-                    horizontal: 28
-                  ),
+                  padding: EdgeInsets.all(15.0),
                   child: Column(
                     children: <Widget>[
-                      Text(
-                        "About " + details["name"],
-                        style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
-                            fontSize: 32,
-                            color: Colors.white
-                          )
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        details["description"],
-                        style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
-                            fontSize: 18,
-                            color: Colors.white
-                          )
-                        ),
-                      ),
-                      SizedBox(
-                        height: 24,
-                      ),
+                      textStyleNormal("About " + details["name"], Alignment.centerLeft, TextAlign.left, 2.0, 10.0, FontWeight.w600, 255, 255, 255, 1.0),
+                      textStyleNormal("\n", Alignment.centerLeft, TextAlign.left, 1.0, 10.0, FontWeight.normal, 0, 0, 0, 0.0),
+                      textStyleNormal(details["description"], Alignment.centerLeft, TextAlign.left, 2.0, 8.0, FontWeight.normal, 255, 255, 255, 1.0),
+                      textStyleNormal("\n", Alignment.centerLeft, TextAlign.left, 1.0, 10.0, FontWeight.normal, 0, 0, 0, 0.0),
+
                       Row(
                         children: <Widget>[
-                          RaisedButton(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(4),
-                              side: BorderSide(
-                                color: Colors.white,
-                                width: 2
-                              )
-                            ),
-                            color: Color(0xFF4c4a78),
-                            onPressed: () async{
-                              if(await canLaunch(details["github"])){
-                                launch(details["github"]);
-                              }
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                vertical: 8,
-                                horizontal: 14
-                              ),
-                              child: Text(
-                                "Github Page",
-                                style: GoogleFonts.openSans(
-                                  color: Colors.white,
-                                  fontSize: 17
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 12
-                          ),
-                          RaisedButton(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(4),
-                              side: BorderSide(
-                                color: Colors.white,
-                                width: 2
-                              )
-                            ),
-                            color: Color(0xFF4c4a78),
-                            onPressed: () async{
-                              if(await canLaunch(details["instagram"])){
-                                launch(details["instagram"]);
-                              }
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                vertical: 8,
-                                horizontal: 14
-                              ),
-                              child: Text(
-                                "Instagram Page",
-                                style: GoogleFonts.openSans(
-                                  color: Colors.white,
-                                  fontSize: 17
-                                ),
-                              ),
-                            ),
-                          )
+                          whiteFlatButton("Github Page", details["github"]),
+                          VerticalDivider(),
+                          whiteFlatButton("Instagram Page", details["instagram"]),
                         ],
                       )
                     ],
                   ),
                 ),
-              )
+              ),
+
+              Card(
+                child: Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child: Column(
+                    children: <Widget>[
+                      textStyleNormal("Partners", Alignment.centerLeft, TextAlign.left, 2.0, 10.0, FontWeight.w600, 0, 0, 0, 1.0),
+                      textStyleNormal("\n", Alignment.centerLeft, TextAlign.left, 1.0, 10.0, FontWeight.normal, 0, 0, 0, 0.0),
+
+                      RichText(
+                        textAlign: TextAlign.left,
+                        textScaleFactor: 2,
+                        text: TextSpan(
+                          children: <TextSpan>[
+                            textStyleSpan("A very big thank you to all our partners for their continued partnership.", 8.0, FontWeight.normal, 0, 0, 0, 1.0),
+                            textStyleSpan("\n\n", 0.0, FontWeight.normal, 0, 0, 0, 0.0),
+                            textStyleSpan("If you’re interested in being showcased throughout ", 8.0, FontWeight.normal, 0, 0, 0, 1.0),
+                            textStyleSpan(details["name"], 8.0, FontWeight.w600, 0, 0, 0, 1.0),
+                            textStyleSpan(", contact ", 8.0, FontWeight.normal, 0, 0, 0, 1.0),
+                            TextSpan(
+                              text: details["email"] + " ",
+                              style: GoogleFonts.openSans(
+                                  fontSize: 8.0,
+                                  fontWeight: FontWeight.normal,
+                                  color: Color.fromRGBO(21, 101, 192, 1.0)),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () => _launchURL("mailto:" + details["email"]),
+                            ),
+                            textStyleSpan("to discuss sponsorship opportunities.", 8.0, FontWeight.normal, 0, 0, 0, 1.0),
+                          ],
+                        ),
+                      ),
+
+                      textStyleNormal("\n", Alignment.centerLeft, TextAlign.left, 1.0, 10.0, FontWeight.normal, 0, 0, 0, 0.0),
+                      textStyleNormal("General Partners", Alignment.centerLeft, TextAlign.left, 2.0, 7.0, FontWeight.normal, 0, 0, 0, 1.0),
+                      Divider(color: Colors.white),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          RaisedButton(
+                            onPressed: () => _launchURL("https://developers.google.com/groups"),
+                            padding: EdgeInsets.all(0.0),
+                            child: imageAsset("assets/images/gdglogo.png", 50.0),
+                          ),
+
+                          VerticalDivider(),
+
+                          RaisedButton(
+                            onPressed: () => _launchURL("https://www.womentechmakers.com/"),
+                            padding: EdgeInsets.all(0.0),
+                            child: imageAsset("assets/images/wtm.png", 50.0),
+                          ),
+                        ],
+                      ),
+
+                      Divider(color: Colors.white),
+
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: RaisedButton(
+                          onPressed: () {},
+                          color: Colors.white,
+                          padding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
+                          child: svgAsset("assets/svg/gdg-x.svg", "https://github.com/gdg-x", 50.0, 50.0),
+                        ),
+                      ),
+
+                      textStyleNormal("\n", Alignment.centerLeft, TextAlign.left, 1.0, 10.0, FontWeight.normal, 0, 0, 0, 0.0),
+                      textStyleNormal("Template Partner", Alignment.centerLeft, TextAlign.left, 2.0, 7.0, FontWeight.normal, 0, 0, 0, 1.0),
+                      Divider(color: Colors.white),
+
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: RaisedButton(
+                          onPressed: () => _launchURL("https://gdgjalandhar.com/"),
+                          padding: EdgeInsets.all(0.0),
+                          child: imageAsset("assets/images/gdgjalandhar.png", 50.0),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -325,6 +330,16 @@ class _HomePageState extends State<HomePage> {
       highlightColor: Color.fromRGBO(225, 247, 250, 1.0),
       splashColor: Color.fromRGBO(168, 232, 240, 1.0),
       shape: RoundedRectangleBorder(side: BorderSide(color: Color.fromRGBO(0, 188, 212, 1.0)),borderRadius: BorderRadius.circular(5.0)),
+    );
+  }
+
+  whiteFlatButton(String text, String url) {
+    return FlatButton(
+      child: textStyleNormal(text, Alignment.center, TextAlign.center, 1.0, 15.0, FontWeight.w600, 255, 255, 255, 1.0),
+      onPressed: () => _launchURL(url),
+      highlightColor: Color.fromRGBO(151, 150, 182, 1.0),
+      splashColor: Color.fromRGBO(97, 95, 136, 1.0),
+      shape: RoundedRectangleBorder(side: BorderSide(color: Color.fromRGBO(255, 255, 255, 1.0)), borderRadius: BorderRadius.circular(5.0)),
     );
   }
 

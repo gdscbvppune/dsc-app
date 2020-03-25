@@ -1,12 +1,11 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'addEvent.dart';
 import 'eventDescription.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
 class EventsPage extends StatefulWidget{
-
   @override
   EventsPageState createState() => EventsPageState();
 }
@@ -30,11 +29,9 @@ class EventsPageState extends State<EventsPage>{
           FlatButton(child: Text("No"),onPressed: ()=>Navigator.pop(context,false),)
         ],
         ),
-        
+
         )?? false;
       }
-
- 
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +39,7 @@ class EventsPageState extends State<EventsPage>{
       body: Padding(
         padding: EdgeInsets.symmetric(
           vertical: 12,
-          horizontal: 20
+          horizontal: 10,
         ),
         child: StreamBuilder(
           stream: Firestore.instance.collection("events").orderBy("date", descending: true).snapshots(),
@@ -59,7 +56,7 @@ class EventsPageState extends State<EventsPage>{
                         height: MediaQuery.of(context).size.height / 5,
                         child: Dismissible(
                           key: Key(snapshot.data.documents[index].documentID),
-                          background: Container(color: Colors.blue,),
+                          background: Container(color: Colors.blue),
                           onDismissed: (direction){
                              Firestore.instance.collection("events").document(snapshot.data.documents[index].documentID).delete();
                             FirebaseStorage.instance.ref().child("events").child(snapshot.data.documents[index]["title"]).delete();
@@ -70,7 +67,7 @@ class EventsPageState extends State<EventsPage>{
                                 )
                               )
                             );
-                           
+
                           },
                           confirmDismiss: (direction) => checkDelete(direction),
                           child: InkWell(
@@ -89,11 +86,11 @@ class EventsPageState extends State<EventsPage>{
                                     featured: snapshot.data.documents[index]["featureEvent"],
                                     venue: snapshot.data.documents[index]["venue"]
 
-                                   
+
                                   )
                                 )
                               );
-                             
+
                             },
                             child: Card(
                               semanticContainer: true,
@@ -110,8 +107,8 @@ class EventsPageState extends State<EventsPage>{
                                     color: Colors.black38,
                                   ),
                                   Positioned(
-                                    bottom: 24,
-                                    left: 24,
+                                    bottom: 12,
+                                    left: 12,
                                     child: FittedBox(
                                       child: Column(
                                         children: <Widget>[
@@ -188,12 +185,12 @@ class EventsPageState extends State<EventsPage>{
               builder: (BuildContext context) => AddEvent(
                 pageTitle: "Add Event",
                 featured: "false",
-               
+
               )
             )
           );
 
-         
+
         },
         child: Icon(Icons.add),
       ),

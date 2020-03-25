@@ -174,7 +174,7 @@ class _AddEventState extends State<AddEvent> {
               SizedBox(
                 height: 24,
               ),
-              Center(child: Text("Featured events",style: TextStyle(fontSize: 18),),),
+              Center(child: Text("Is this featured event ?",style: TextStyle(fontSize: 18),),),
               SizedBox(height:12),
               DropdownButton(
                 icon: Icon(Icons.arrow_drop_down),
@@ -399,6 +399,8 @@ class _AddEventState extends State<AddEvent> {
               SizedBox(
                 height: 24,
               ),
+              Center(child: Text("Pick Event Poster", style: TextStyle(fontSize: 18))),
+              SizedBox(height:12),
               RaisedButton.icon(
                 onPressed: (){
                   getImage();
