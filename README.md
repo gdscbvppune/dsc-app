@@ -1,16 +1,28 @@
-# dsc
+<h1 align="center"> DSC Web App
+<div align="center">
+<a href="https://flutter.dev/">
+<img src="https://img.shields.io/badge/Built with-flutter-blue?style=flat-square" alt="Flutter"/>
+</a>
+<span>|</span>
+<a href="https://github.com/dscbvppune/dsc/commits/master/">
+<img src="https://img.shields.io/github/last-commit/dscbvppune/dsc?style=flat-square" alt="Last Commit"/>
+</a>
+<span>|</span>
+<a href="https://github.com/dscbvppune/dsc/blob/master/LICENSE">
+<img src="https://img.shields.io/badge/License-MIT-purple?style=flat-square" alt="License"/>
+</a>
+</div>
+</h1>
 
-A mobile app to help update and manage your DSC website easily
+## Overview
 
-## Getting Started
+This project aims at making websites easier to manage. We at **DSC BVP Pune** noticed that many DSC's have outdated websites or do not even have an existing website. In order to solve this issue, we came up with a solution where maintainers could easily manage their websites using a mobile app.
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| Feature                 | Description                                                                                |
+| ----------------------- | ------------------------------------------------------------------------------------------ |
+| **Built using Flutter** | The App is built exclusively in Flutter, while the adjoining website is built using Vue.js |
+| **Portability**         | This Web-App can be used as a template by other Student Clubs                              |
+| **User Experience**     | User-friendly and reliable, as well as handy and easy to use                               |
+| **Powered by Firebase** | Cloud Firestore of Firebase provides solutions for storage issues                          |
