@@ -1,12 +1,11 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AddEvent extends StatefulWidget {
-
   final pageTitle, eventTitle, eventDate, eventTime, eventSpeaker, eventDescription, eventURL, eventPosterUrl, featured, eventVenue;
   AddEvent({this.pageTitle, this.eventDate, this.eventDescription, this.eventSpeaker, this.eventTime, this.eventTitle, this.eventURL, this.eventPosterUrl, this.featured, this.eventVenue});
 

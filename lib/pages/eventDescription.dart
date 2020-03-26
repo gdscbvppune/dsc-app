@@ -4,7 +4,6 @@ import 'package:url_launcher/url_launcher.dart';
 import 'addEvent.dart';
 
 class EventDescription extends StatefulWidget {
-
   final speaker, eventName, eventDate, eventTimings, registrationLink, desc, eventPosterURL, featured, venue;
   EventDescription({this.eventDate, this.eventName, this.eventTimings, this.registrationLink, this.speaker, this.desc, this.eventPosterURL, this.featured, this.venue});
 

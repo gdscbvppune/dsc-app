@@ -12,7 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   var details;
   List hashTags = List();
 
@@ -265,7 +264,7 @@ class _HomePageState extends State<HomePage> {
                 shortDesc: details["shortDescription"],
                 longDesc: details["description"],
                 githubLink: details["github"],
-                instaLink: details["instagram"],
+                instagramLink: details["instagram"],
                 email: details["email"],
                 twitterLink: details["twitter"],
                 about: details["about"],

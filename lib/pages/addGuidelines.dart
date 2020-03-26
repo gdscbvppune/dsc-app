@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AddGuidelines extends StatefulWidget {
-
   final String pageTitle, title, description;
   final int index;
   List listOfGuidelines = List();
@@ -13,7 +12,6 @@ class AddGuidelines extends StatefulWidget {
 }
 
 class _AddGuidelinesState extends State<AddGuidelines> {
-
   TextEditingController titleController = TextEditingController();
   TextEditingController valueController = TextEditingController();
 

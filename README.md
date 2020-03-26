@@ -1,4 +1,4 @@
-<h1 align="center"> DSC Web App
+<h1 align="center">DSC Web-App
 <div align="center">
 <a href="https://flutter.dev/">
 <img src="https://img.shields.io/badge/Built with-flutter-blue?style=flat-square" alt="flutter"/>

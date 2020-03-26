@@ -1,12 +1,11 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
 class AddMember extends StatefulWidget {
-
   final name, github, instagram, linkedin, twitter, title, team, website, pageTitle, memberImgUrl, order;
   AddMember({this.name, this.github, this.linkedin, this.instagram, this.twitter, this.team, this.website, this.pageTitle, this.title, this.memberImgUrl, this.order});
 
@@ -19,7 +18,7 @@ class _AddMemberState extends State<AddMember> {
   TextEditingController nameController = TextEditingController();
   TextEditingController githubController = TextEditingController();
   TextEditingController instagramController = TextEditingController();
-  TextEditingController linkedinContoller = TextEditingController();
+  TextEditingController linkedinController = TextEditingController();
   TextEditingController twitterController = TextEditingController();
   TextEditingController titleController = TextEditingController();
   TextEditingController teamController = TextEditingController();
@@ -54,7 +53,7 @@ class _AddMemberState extends State<AddMember> {
     twitterController.text = widget.twitter;
     teamController.text = widget.team;
     websiteController.text = widget.website;
-    linkedinContoller.text = widget.linkedin;
+    linkedinController.text = widget.linkedin;
     orderController.text = widget.order;
     super.initState();
   }
@@ -292,9 +291,9 @@ class _AddMemberState extends State<AddMember> {
                 child: TextFormField(
                   focusNode: linkedinFocusNode,
                   autocorrect: false,
-                  controller: linkedinContoller,
+                  controller: linkedinController,
                   onFieldSubmitted: (val){
-                    linkedinContoller.text = val;
+                    linkedinController.text = val;
                   },
                   onEditingComplete: (){
                     linkedinFocusNode.unfocus();
@@ -393,7 +392,7 @@ class _AddMemberState extends State<AddMember> {
             "title": titleController.text,
             "team": teamController.text,
             "github": githubController.text,
-            "linkedin": linkedinContoller.text,
+            "linkedin": linkedinController.text,
             "instagram": instagramController.text,
             "twitter": twitterController.text,
             "website": websiteController.text,

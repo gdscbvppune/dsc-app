@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import 'addMember.dart';
 
 class MemberDetails extends StatefulWidget {
-
   final String imgURL, name, instagramLink, twitterLink, githubLink, websiteLink, linkedinLink, orderID, team, title;
   MemberDetails({this.name, this.instagramLink, this.team, this.title, this.githubLink, this.imgURL, this.linkedinLink, this.orderID, this.twitterLink, this.websiteLink});
 

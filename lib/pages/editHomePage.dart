@@ -2,24 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class EditHomePage extends StatefulWidget {
-
-  final dscName, shortDesc, longDesc, githubLink, instaLink, twitterLink, email, about, cocInfo, coc, socials;
+  final dscName, shortDesc, longDesc, githubLink, instagramLink, twitterLink, email, about, cocInfo, coc, socials;
   final List tags;
-  EditHomePage({this.dscName, this.shortDesc, this.longDesc, this.githubLink, this.instaLink, this.twitterLink, this.email, this.about, this.cocInfo, this.coc, this.socials, this.tags});
+  EditHomePage({this.dscName, this.shortDesc, this.longDesc, this.githubLink, this.instagramLink, this.twitterLink, this.email, this.about, this.cocInfo, this.coc, this.socials, this.tags});
 
   @override
   _EditHomePageState createState() => _EditHomePageState();
 }
 
 class _EditHomePageState extends State<EditHomePage> {
-
   FocusNode dscNameFocusNode = FocusNode();
   FocusNode emailFocusNode = FocusNode();
   FocusNode aboutFocusNode = FocusNode();
   FocusNode shortDescFocusNode = FocusNode();
   FocusNode longDescFocusNode = FocusNode();
   FocusNode githubLinkFocusNode = FocusNode();
-  FocusNode instaLinkFocusNode = FocusNode();
+  FocusNode instagramLinkFocusNode = FocusNode();
   FocusNode twitterLinkFocusNode = FocusNode();
 
   TextEditingController dscNameController = TextEditingController();
@@ -28,7 +26,7 @@ class _EditHomePageState extends State<EditHomePage> {
   TextEditingController shortDescController = TextEditingController();
   TextEditingController longDescController = TextEditingController();
   TextEditingController githubLinkDescController = TextEditingController();
-  TextEditingController instaLinkController = TextEditingController();
+  TextEditingController instagramLinkController = TextEditingController();
   TextEditingController twitterLinkController = TextEditingController();
 
   @override
@@ -37,7 +35,7 @@ class _EditHomePageState extends State<EditHomePage> {
     shortDescController.text = widget.shortDesc;
     longDescController.text = widget.longDesc;
     githubLinkDescController.text = widget.githubLink;
-    instaLinkController.text = widget.instaLink;
+    instagramLinkController.text = widget.instagramLink;
     twitterLinkController.text = widget.twitterLink;
     emailController.text = widget.email;
     aboutController.text = widget.about;
@@ -134,7 +132,7 @@ class _EditHomePageState extends State<EditHomePage> {
                   },
                   onEditingComplete: (){
                     twitterLinkFocusNode.unfocus();
-                    FocusScope.of(context).requestFocus(instaLinkFocusNode);
+                    FocusScope.of(context).requestFocus(instagramLinkFocusNode);
                   },
                   decoration: InputDecoration(
                     hintText: "for eg. twitter.com/dscbvppune",
@@ -156,14 +154,14 @@ class _EditHomePageState extends State<EditHomePage> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 32),
                 child: TextFormField(
-                  focusNode: instaLinkFocusNode,
+                  focusNode: instagramLinkFocusNode,
                   autocorrect: false,
-                  controller: instaLinkController,
+                  controller: instagramLinkController,
                   onFieldSubmitted: (val){
-                    instaLinkController.text = val;
+                    instagramLinkController.text = val;
                   },
                   onEditingComplete: (){
-                    instaLinkFocusNode.unfocus();
+                    instagramLinkFocusNode.unfocus();
                     FocusScope.of(context).requestFocus(githubLinkFocusNode);
                   },
                   decoration: InputDecoration(
@@ -319,7 +317,7 @@ class _EditHomePageState extends State<EditHomePage> {
             "name": dscNameController.text,
             "email": emailController.text,
             "twitter": twitterLinkController.text,
-            "instagram": instaLinkController.text,
+            "instagram": instagramLinkController.text,
             "github": githubLinkDescController.text,
             "shortDescription": shortDescController.text,
             "description": longDescController.text,

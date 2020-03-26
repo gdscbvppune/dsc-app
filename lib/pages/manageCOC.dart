@@ -1,6 +1,6 @@
-import 'addGuidelines.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'addGuidelines.dart';
 
 class ManageCommunityGuidelinesScreen extends StatefulWidget {
   @override
@@ -8,9 +8,8 @@ class ManageCommunityGuidelinesScreen extends StatefulWidget {
 }
 
 class _ManageCommunityGuidelinesScreenState extends State<ManageCommunityGuidelinesScreen> {
-
   List<Widget> listOfGuidelines = List();
-  List<Map> updatedGuidlinesList = List();
+  List<Map> updatedGuidelinesList = List();
 
   fetchCOC() async{
     var details = await Firestore.instance.collection("details").document("details").get();
@@ -28,7 +27,7 @@ class _ManageCommunityGuidelinesScreenState extends State<ManageCommunityGuideli
         "name": item["name"],
         "des": item["des"]
       };
-      updatedGuidlinesList.add(tempDetails);
+      updatedGuidelinesList.add(tempDetails);
       setState(() {
         
       });
@@ -73,10 +72,10 @@ class _ManageCommunityGuidelinesScreenState extends State<ManageCommunityGuideli
                 ),
                 onDismissed: (direction) async{
                   listOfGuidelines.removeAt(index);
-                  updatedGuidlinesList.removeAt(index);
+                  updatedGuidelinesList.removeAt(index);
                   var ref = await Firestore.instance.collection("details").document("details").get();
                   Map tempMap = ref.data;
-                  tempMap["coc"] = updatedGuidlinesList;
+                  tempMap["coc"] = updatedGuidelinesList;
                   await Firestore.instance.collection("details").document("details").delete();
                   var tempRef = Firestore.instance.collection("details").document("details");
                   tempRef.setData(tempMap);
@@ -91,15 +90,15 @@ class _ManageCommunityGuidelinesScreenState extends State<ManageCommunityGuideli
                       MaterialPageRoute(
                         builder: (BuildContext context) => AddGuidelines(
                           pageTitle: "Edit Guidelines",
-                          title: updatedGuidlinesList[index]["name"],
-                          description: updatedGuidlinesList[index]["des"],
-                          listOfGuidelines: updatedGuidlinesList,
+                          title: updatedGuidelinesList[index]["name"],
+                          description: updatedGuidelinesList[index]["des"],
+                          listOfGuidelines: updatedGuidelinesList,
                           index: index,
                         )
                       )
                     ).then((onValue){
                       setState(() {
-                        updatedGuidlinesList.clear();
+                        updatedGuidelinesList.clear();
                         listOfGuidelines.clear();
                         fetchCOC();
                       });
@@ -121,12 +120,12 @@ class _ManageCommunityGuidelinesScreenState extends State<ManageCommunityGuideli
                 pageTitle: "Add Guidelines",
                 title: "",
                 description: "",
-                listOfGuidelines: updatedGuidlinesList,
+                listOfGuidelines: updatedGuidelinesList,
               )
             )
           ).then((onValue){
             setState(() {
-              updatedGuidlinesList.clear();
+              updatedGuidelinesList.clear();
               listOfGuidelines.clear();
               fetchCOC();
             });

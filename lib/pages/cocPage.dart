@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'manageCOC.dart';
 
 class COCPage extends StatefulWidget {
@@ -10,7 +9,6 @@ class COCPage extends StatefulWidget {
 }
 
 class _COCPageState extends State<COCPage> {
-
   var details;
   List cocGuideLines = List();
 
