@@ -1,4 +1,4 @@
-<h1 align="center">DSC Web-App
+<h1 align="center"><span><h3>DSC Web-App</h3></span>
 <div align="center">
 <a href="https://flutter.dev/">
 <img src="https://img.shields.io/badge/Built with-flutter-blue?style=flat-square" alt="flutter"/>
@@ -108,40 +108,46 @@ dsc
 
 #### Function of each file
 
-| File                                                                                                   | Function                                                |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
-| [achievementsPage.dart](https://github.com/dscbvppune/dsc/blob/master/lib/pages/achievementsPage.dart) | Displaying achievements of DSC (WIP)                    |
-| [addEvent.dart](https://github.com/dscbvppune/dsc/blob/master/lib/pages/addGuidelines.dart)            | Page for adding events                                  |
-| [addGuidelines.dart](https://github.com/dscbvppune/dsc/blob/master/lib/pages/addGuidelines.dart)       | Page for adding guidelines for your DSC                 |
-| [addMember.dart](https://github.com/dscbvppune/dsc/blob/master/lib/pages/addMember.dart)               | Page for adding team members of your DSC                |
-| [cocPage.dart](https://github.com/dscbvppune/dsc/blob/master/lib/pages/cocPage.dart)                   | Code of Conduct page of your DSC                        |
-| [editHomePage.dart](https://github.com/dscbvppune/dsc/blob/master/lib/pages/editHomePage.dart)         | Page for editing homepage of your DSC's website         |
-| [eventDescription.dart](https://github.com/dscbvppune/dsc/blob/master/lib/pages/eventDescription.dart) | Description page for events                             |
-| [eventsPage.dart](https://github.com/dscbvppune/dsc/blob/master/lib/pages/eventsPage.dart)             | Pages for displaying all events of your DSC             |
-| [homePage.dart](https://github.com/dscbvppune/dsc/blob/master/lib/pages/homePage.dart)                 | Home page of the app                                    |
-| [loginPage.dart](https://github.com/dscbvppune/dsc/blob/master/lib/pages/loginPage.dart)               | Login page of the app for signing-in with google        |
-| [manageCOC.dart](https://github.com/dscbvppune/dsc/blob/master/lib/pages/manageCOC.dart)               | Page for altering code of conduct of your DSC           |
-| [memberDetails.dart](https://github.com/dscbvppune/dsc/blob/master/lib/pages/memberDetails.dart)       | Adding details of your team                             |
-| [splashPage.dart](https://github.com/dscbvppune/dsc/blob/master/lib/pages/splashPage.dart)             | Temporary loading page with circular progress indicator |
-| [teamPage.dart](https://github.com/dscbvppune/dsc/blob/master/lib/pages/teamPage.dart)                 | Page for displaying your DSC                            |
-| [authHandler.dart](https://github.com/dscbvppune/dsc/blob/master/lib/services/authHandler.dart)        | Dart file for user auth detection                       |
-| [authService.dart](https://github.com/dscbvppune/dsc/blob/master/lib/services/authService.dart)        | Dart file for google and firebase login                 |
-| [buttonBuilder.dart](https://github.com/dscbvppune/dsc/blob/master/lib/services/buttonBuilder.dart)    | Dart file for building stretchable raised buttons       |
-| [pageHandler.dart](https://github.com/dscbvppune/dsc/blob/master/lib/services/pageHandler.dart)        | Dart file for handling navigation of pages              |
+| File                                                      | Function                                                |
+| --------------------------------------------------------- | ------------------------------------------------------- |
+| [achievementsPage.dart](/lib/pages/achievementsPage.dart) | Displaying achievements of DSC (WIP)                    |
+| [addEvent.dart](/lib/pages/addGuidelines.dart)            | Page for adding events                                  |
+| [addGuidelines.dart](/lib/pages/addGuidelines.dart)       | Page for adding guidelines for your DSC                 |
+| [addMember.dart](/lib/pages/addMember.dart)               | Page for adding team members of your DSC                |
+| [cocPage.dart](/lib/pages/cocPage.dart)                   | Code of Conduct page of your DSC                        |
+| [editHomePage.dart](/lib/pages/editHomePage.dart)         | Page for editing homepage of your DSC's website         |
+| [eventDescription.dart](/lib/pages/eventDescription.dart) | Description page for events                             |
+| [eventsPage.dart](/lib/pages/eventsPage.dart)             | Pages for displaying all events of your DSC             |
+| [homePage.dart](/lib/pages/homePage.dart)                 | Home page of the app                                    |
+| [loginPage.dart](/lib/pages/loginPage.dart)               | Login page of the app for signing-in with google        |
+| [manageCOC.dart](/lib/pages/manageCOC.dart)               | Page for altering code of conduct of your DSC           |
+| [memberDetails.dart](/lib/pages/memberDetails.dart)       | Adding details of your team                             |
+| [splashPage.dart](/lib/pages/splashPage.dart)             | Temporary loading page with circular progress indicator |
+| [teamPage.dart](/lib/pages/teamPage.dart)                 | Page for displaying your DSC                            |
+| [authHandler.dart](/lib/services/authHandler.dart)        | Dart file for user auth detection                       |
+| [authService.dart](/lib/services/authService.dart)        | Dart file for google and firebase login                 |
+| [buttonBuilder.dart](/lib/services/buttonBuilder.dart)    | Dart file for building stretchable raised buttons       |
+| [pageHandler.dart](/lib/services/pageHandler.dart)        | Dart file for handling navigation of pages              |
+| [main.dart](/lib/main.dart)                               | Entry point of the material app that calls authHandler  |
 
-## Contributers
+## Contributors
 
-<a href="https://github.com/dscbvppune/dsc/graphs/contributors">
-<img src="https://contributors-img.web.app/image?repo=dscbvppune/dsc" />
-</a>
+| Name              | Nickname                                          | E-Mail                                                                |
+| ----------------- | ------------------------------------------------- | --------------------------------------------------------------------- |
+| Abhishek Dubey    | [Abhi011999](https://github.com/Abhi011999)       | [abhi.dubey011999@gmail.com](mailto:abhi.dubey011999@gmail.com)       |
+| Nishchay Verma    | [Nishchayverma](https://github.com/Nishchayverma) | [nishchayverma20@gmail.com](mailto:nishchayverma20@gmail.com)         |
+| Priyanshu Agarwal | [priyanshu-01](https://github.com/priyanshu-01)   | [priyanshu.agarwal88@gmail.com](mailto:priyanshu.agarwal88@gmail.com) |
+| Sparsh Tandon     | [codesparsh](https://github.com/codesparsh)       | [snowmansparsh4@gmail.com](mailto:snowmansparsh4@gmail.com)           |
 
 ## Contributing
 
-TODO
+See [CONTRIBUTING.md](/CONTRIBUTING.md)
 
 ## Support
+
 - If you have any issues, feel free to hit us up at [dscbvppune@gmail.com](mailto:dscbvppune@gmail.com).
 - You can also put up queries on GitHub issues [here](https://github.com/dscbvppune/dsc/issues).
 
 ## License
+
 > This project is licensed under the MIT License - see the [LICENSE](/LICENSE) file for details.

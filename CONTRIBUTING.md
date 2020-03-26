@@ -21,4 +21,5 @@ This section guides you through submitting a bug report for dsc. Following these
 * Look up for open issues and see if you can help out there.
 * When making a PR, point it to the [master branch](https://github.com/dscbvppune/dsc/tree/master) unless mentioned otherwise.
 * If you are planning to work on something big, let me know through an issue. So we can discuss more about it.
-* Lastly, please don't hesitate to ask if you have any questions! Let us know (through an issue) if you are facing any trouble making a PR, we’d be glad to help you out!
+* Please don't hesitate to ask if you have any questions! Let us know (through an issue) if you are facing any trouble making a PR, we’d be glad to help you out!
+* Lastly, if your PR has been merged then add your details in contributors table in README file.
