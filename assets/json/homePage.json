@@ -1,0 +1,70 @@
+{
+  "details": {
+    "details": {
+      "name": "",
+      "email": "",
+      "twitter": "",
+      "instagram": "",
+      "github": "",
+      "shortDescription": "",
+      "description": "",
+      "about": "",
+      "coc": [
+        {
+          "des": "",
+          "name": ""
+        },
+        {
+          "des": "",
+          "name": ""
+        },
+        {
+          "des": "",
+          "name": ""
+        },
+        {
+          "des": "",
+          "name": ""
+        },
+        {
+          "des": "",
+          "name": ""
+        },
+        {
+          "des": "",
+          "name": ""
+        }
+      ],
+      "aboutDSCLink": "",
+      "cocInfo": "",
+      "becomeMemberURL": "",
+      "socials": [
+        {
+          "icon": "",
+          "link": "",
+          "name": ""
+        },
+        {
+          "icon": "",
+          "link": "",
+          "name": ""
+        },
+        {
+          "icon": "",
+          "link": "",
+          "name": ""
+        },
+        {
+          "icon": "",
+          "link": "",
+          "name": ""
+        }
+      ],
+      "tags": [
+        "",
+        "",
+        ""
+      ]
+    }
+  }
+}
