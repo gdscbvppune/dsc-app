@@ -14,17 +14,24 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var details;
   List hashTags = List();
+  List socialLinks = List();
 
   getDetails() async{
     var ref = Firestore.instance;
     details = await ref.collection("details").document("details").get();
-  
+
     for (var i in details["tags"]) {
       var tempTag = textStyleSpan("#" + i + "\t", 8.0, FontWeight.normal, 150, 150, 150, 1.0);
       hashTags.add(tempTag);
     }
+
+    for (var item in details["socials"]) {
+      var tempLink = whiteFlatButton(item["name"] + " Page", item["link"]);
+      socialLinks.add(tempLink);
+    }
+
     setState(() {
-      
+
     });
   }
 
@@ -94,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                     children: <Widget>[
                       textStyleNormal("What we do?", Alignment.centerLeft, TextAlign.left, 2.0, 10.0, FontWeight.w600, 0, 0, 0, 1.0),
                       textStyleNormal("\n", Alignment.centerLeft, TextAlign.left, 1.0, 10.0, FontWeight.normal, 0, 0, 0, 0.0),
-                      textStyleNormal("A Google Developers program for university students, with the aim to help students build their development skills and knowledge.", Alignment.centerLeft, TextAlign.left, 2.0, 8.0, FontWeight.normal, 0, 0, 0, 1.0),
+                      textStyleNormal(details["shortDescription"], Alignment.centerLeft, TextAlign.left, 2.0, 8.0, FontWeight.normal, 0, 0, 0, 1.0),
                       textStyleNormal("\n", Alignment.centerLeft, TextAlign.left, 1.0, 10.0, FontWeight.normal, 0, 0, 0, 0.0),
                       textStyleNormal("About different Google technologies", Alignment.centerLeft, TextAlign.left, 2.0, 8.0, FontWeight.normal, 0, 0, 0, 1.0),
                       textStyleNormal("\n", Alignment.centerLeft, TextAlign.left, 1.0, 10.0, FontWeight.normal, 0, 0, 0, 0.0),
@@ -154,13 +161,11 @@ class _HomePageState extends State<HomePage> {
                       textStyleNormal(details["description"], Alignment.centerLeft, TextAlign.left, 2.0, 8.0, FontWeight.normal, 255, 255, 255, 1.0),
                       textStyleNormal("\n", Alignment.centerLeft, TextAlign.left, 1.0, 10.0, FontWeight.normal, 0, 0, 0, 0.0),
 
-                      Row(
+                      ButtonBar(
                         children: <Widget>[
-                          whiteFlatButton("Github Page", details["github"]),
-                          VerticalDivider(),
-                          whiteFlatButton("Instagram Page", details["instagram"]),
+                          for (var item in socialLinks) item,
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -278,6 +283,7 @@ class _HomePageState extends State<HomePage> {
             setState(() {
               details = null;
               hashTags.clear();
+              socialLinks.clear();
               getDetails();
             });
           });
@@ -297,9 +303,9 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  textStyleNormal(String text, boxalign, textAlign, double scaleFactor, double size, weight, int r, int g, int b, double o) {
+  textStyleNormal(String text, boxAlign, textAlign, double scaleFactor, double size, weight, int r, int g, int b, double o) {
     return Align(
-      alignment: boxalign,
+      alignment: boxAlign,
       child: Text(
         text,
         textAlign: textAlign,
