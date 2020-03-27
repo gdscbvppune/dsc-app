@@ -1,14 +1,14 @@
 {
   "teams": {
-    "name": "",
-    "title": "",
-    "team": "",
-    "github": "",
-    "linkedin": "",
-    "instagram": "",
-    "twitter": "",
-    "website": "",
-    "id": "",
-    "profileImage": ""
+    "name": "Lorem Ipsum",
+    "title": "Lead",
+    "team": "Core",
+    "github": "https://github.com/",
+    "linkedin": "https://linkedin.com/",
+    "instagram": "https://instagram.com/",
+    "twitter": "https://twitter.com/",
+    "website": "https://www.lipsum.com/",
+    "id": "0",
+    "profileImage": "https://picsum.photos/600"
   }
 }

@@ -1,14 +1,14 @@
 {
   "events": {
-    "title": "",
-    "desc": "",
-    "date": "",
-    "time": "",
-    "speaker": "",
-    "link": "",
-    "icon": "",
-    "featureEvent": "",
-    "eventPosterURL": "",
-    "venue": ""
+    "title": "Aliquam posuere aliquet tempor",
+    "desc": "Integer dapibus sem vel dui convallis, eu facilisis felis tincidunt. Phasellus fermentum magna convallis vestibulum malesuada. Etiam id ultricies ante. Cras dictum nec eros eget ornare. Etiam in convallis justo, at sollicitudin magna. Vestibulum et risus ac mi facilisis facilisis. Vestibulum convallis pharetra elit, in laoreet lectus pharetra ac.",
+    "date": "YYYY-MM-DD",
+    "time": "HH:MM - HH:MM",
+    "speaker": "Lorem Ipsum",
+    "link": "https://dscloremipsum.com/",
+    "icon": "ICON",
+    "featureEvent": "true",
+    "eventPosterURL": "https://picsum.photos/1280/720",
+    "venue": "Pellentesque id sagittis elit"
   }
 }
