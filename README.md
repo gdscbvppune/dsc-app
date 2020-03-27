@@ -97,15 +97,17 @@ dsc
 ├── android
 │    └── *
 ├── assets
-│   └── fonts
-│       └── *
-│   └── icons
-│       └── *
-│   └── images
-│       └── *
-│   └── logos
-│       └── *
-│   └── svg
+│   ├── fonts
+│   │   └── *
+│   ├── icons
+│   │   └── *
+│   ├── images
+│   │   └── *
+│   ├── logos
+│   │   └── *
+│   ├── svg
+│   │   └── *
+│   └── json
 │       └── *
 ├── docs
 │   └── images
