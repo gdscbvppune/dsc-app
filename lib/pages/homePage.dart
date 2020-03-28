@@ -109,17 +109,35 @@ class _HomePageState extends State<HomePage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
-                          svgAsset("assets/svg/angular.svg", "https://angular.io/", 40.0, 40.0),
+                          Tooltip(
+                            message: "Angular",
+                            child: svgAsset("assets/svg/angular.svg", "https://angular.io/", 40.0, 40.0),
+                          ),
                           VerticalDivider(),
-                          svgAsset("assets/svg/gcp.svg", "https://cloud.google.com/", 50.0, 50.0),
+                          Tooltip(
+                            message: "Google Cloud Platform",
+                            child: svgAsset("assets/svg/gcp.svg", "https://cloud.google.com/", 50.0, 50.0),
+                          ),
                           VerticalDivider(),
-                          svgAsset("assets/svg/android.svg", "https://www.android.com/", 40.0, 40.0),
+                          Tooltip(
+                            message: "Android",
+                            child: svgAsset("assets/svg/android.svg", "https://www.android.com/", 40.0, 40.0),
+                          ),
                           VerticalDivider(),
-                          svgAsset("assets/svg/aog.svg", "https://developers.google.com/actions/", 40.0, 40.0),
+                          Tooltip(
+                            message: "Actions on Google",
+                            child: svgAsset("assets/svg/aog.svg", "https://developers.google.com/actions/", 40.0, 40.0),
+                          ),
                           VerticalDivider(),
-                          svgAsset("assets/svg/firebase.svg", "https://firebase.google.com/", 40.0, 40.0),
+                          Tooltip(
+                            message: "Firebase",
+                            child: svgAsset("assets/svg/firebase.svg", "https://firebase.google.com/", 40.0, 40.0),
+                          ),
                           VerticalDivider(),
-                          svgAsset("assets/svg/tf.svg", "https://www.tensorflow.org/", 40.0, 40.0),
+                          Tooltip(
+                            message: "Tensorflow",
+                            child: svgAsset("assets/svg/tf.svg", "https://www.tensorflow.org/", 40.0, 40.0),
+                          ),
                         ],
                       ),
 
@@ -210,18 +228,26 @@ class _HomePageState extends State<HomePage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
-                          RaisedButton(
-                            onPressed: () => _launchURL("https://developers.google.com/groups"),
-                            padding: EdgeInsets.all(0.0),
-                            child: imageAsset("assets/images/gdglogo.png", 50.0),
+                          Tooltip(
+                            message: "GDG",
+                            verticalOffset: 30.0,
+                            child: RaisedButton(
+                              onPressed: () => _launchURL("https://developers.google.com/groups"),
+                              padding: EdgeInsets.all(0.0),
+                              child: imageAsset("assets/images/gdglogo.png", 50.0),
+                            ),
                           ),
 
                           VerticalDivider(),
 
-                          RaisedButton(
-                            onPressed: () => _launchURL("https://www.womentechmakers.com/"),
-                            padding: EdgeInsets.all(0.0),
-                            child: imageAsset("assets/images/wtm.png", 50.0),
+                          Tooltip(
+                            message: "Women Techmakers",
+                            verticalOffset: 30.0,
+                            child: RaisedButton(
+                              onPressed: () => _launchURL("https://www.womentechmakers.com/"),
+                              padding: EdgeInsets.all(0.0),
+                              child: imageAsset("assets/images/wtm.png", 50.0),
+                            ),
                           ),
                         ],
                       ),
@@ -230,11 +256,15 @@ class _HomePageState extends State<HomePage> {
 
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: RaisedButton(
-                          onPressed: () {},
-                          color: Colors.white,
-                          padding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
-                          child: svgAsset("assets/svg/gdg-x.svg", "https://github.com/gdg-x", 50.0, 50.0),
+                        child: Tooltip(
+                          message: "GDG[x]",
+                          verticalOffset: 35.0,
+                          child: RaisedButton(
+                            onPressed: () {},
+                            color: Colors.white,
+                            padding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
+                            child: svgAsset("assets/svg/gdg-x.svg", "https://github.com/gdg-x", 50.0, 50.0),
+                          ),
                         ),
                       ),
 
@@ -244,10 +274,15 @@ class _HomePageState extends State<HomePage> {
 
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: RaisedButton(
-                          onPressed: () => _launchURL("https://gdgjalandhar.com/"),
-                          padding: EdgeInsets.all(0.0),
-                          child: imageAsset("assets/images/gdgjalandhar.png", 50.0),
+                        child: Tooltip(
+                          message: "GDG Jalandhar",
+
+                          verticalOffset: 30.0,
+                          child: RaisedButton(
+                            onPressed: () => _launchURL("https://gdgjalandhar.com/"),
+                            padding: EdgeInsets.all(0.0),
+                            child: imageAsset("assets/images/gdgjalandhar.png", 50.0),
+                          ),
                         ),
                       ),
                     ],
