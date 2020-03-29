@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'editHomePage.dart';
+import '../services/databaseHandler.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -18,6 +19,15 @@ class _HomePageState extends State<HomePage> {
 
   getDetails() async{
     var ref = Firestore.instance;
+    var refCheck = await ref.collection("details").getDocuments();
+
+    if (refCheck.documents.length == 0) {
+      await Navigator.push(
+          context,
+          PageRouteBuilder(opaque: false, pageBuilder: (_, __, ___) => DatabaseHandler()),
+      ).whenComplete(() => getDetails());
+    }
+
     details = await ref.collection("details").document("details").get();
 
     for (var i in details["tags"]) {
@@ -30,9 +40,7 @@ class _HomePageState extends State<HomePage> {
       socialLinks.add(tempLink);
     }
 
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   @override

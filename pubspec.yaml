@@ -15,6 +15,7 @@ dependencies:
   provider: ^4.0.4
   font_awesome_flutter: ^8.7.0
   rflutter_alert: ^1.0.2
+  progress_dialog: ^1.2.1
   google_fonts: ^0.3.9
   cloud_firestore: ^0.13.4+2
   flutter_svg: ^0.17.3+1
@@ -38,3 +39,4 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/svg/
+    - assets/json/

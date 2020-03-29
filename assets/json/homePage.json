@@ -1,70 +1,62 @@
 {
-  "details": {
-    "details": {
-      "name": "DSC Lorem Ipsum",
-      "email": "lorem@ipsum.com",
-      "twitter": "https://twitter.com/",
-      "instagram": "https://instagram.com/",
-      "github": "https://github.com/",
-      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida velit suscipit, consequat urna a, tincidunt dolor. Mauris ultricies ex id venenatis auctor. Proin tortor neque, commodo eget orci at, rutrum rhoncus nunc.",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida velit suscipit, consequat urna a, tincidunt dolor. Mauris ultricies ex id venenatis auctor. Proin tortor neque, commodo eget orci at, rutrum rhoncus nunc. Mauris sem libero, sagittis aliquam pretium sit amet, pretium at lorem. Aenean rhoncus leo quis aliquet vulputate. Proin dignissim vestibulum augue, at consectetur felis placerat ut. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur vel dui vel nulla vulputate ultrices sed sit amet enim. Curabitur venenatis sodales tellus, eget vestibulum urna euismod non. Integer lobortis placerat tellus, quis lobortis mi porttitor sed. Duis efficitur tempus est et feugiat. Mauris lacus sapien, malesuada eget ultrices eu, pellentesque sit amet purus. Aliquam nec dui at ligula porttitor tristique id ac dui.",
-      "about": "Developer Student Clubs are university based community groups for students interested in Google developer technologies. Students from all undergraduate or graduate programs with an interest in growing as a developer are welcome. By joining a DSC, students grow their knowledge in a peer-to-peer learning environment and build solutions for local businesses and their community.",
-      "coc": [
-        {
-          "name": "Lorem ipsum dolor",
-          "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida velit suscipit, consequat urna a, tincidunt dolor. Mauris ultricies ex id venenatis auctor. Proin tortor neque, commodo eget orci at, rutrum rhoncus nunc. Mauris sem libero, sagittis aliquam pretium sit amet, pretium at lorem."
-        },
-        {
-          "name": "Lorem ipsum dolor",
-          "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida velit suscipit, consequat urna a, tincidunt dolor. Mauris ultricies ex id venenatis auctor. Proin tortor neque, commodo eget orci at, rutrum rhoncus nunc. Mauris sem libero, sagittis aliquam pretium sit amet, pretium at lorem."
-        },
-        {
-          "name": "Lorem ipsum dolor",
-          "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida velit suscipit, consequat urna a, tincidunt dolor. Mauris ultricies ex id venenatis auctor. Proin tortor neque, commodo eget orci at, rutrum rhoncus nunc. Mauris sem libero, sagittis aliquam pretium sit amet, pretium at lorem."
-        },
-        {
-          "name": "Lorem ipsum dolor",
-          "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida velit suscipit, consequat urna a, tincidunt dolor. Mauris ultricies ex id venenatis auctor. Proin tortor neque, commodo eget orci at, rutrum rhoncus nunc. Mauris sem libero, sagittis aliquam pretium sit amet, pretium at lorem."
-        },
-        {
-          "name": "Lorem ipsum dolor",
-          "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida velit suscipit, consequat urna a, tincidunt dolor. Mauris ultricies ex id venenatis auctor. Proin tortor neque, commodo eget orci at, rutrum rhoncus nunc. Mauris sem libero, sagittis aliquam pretium sit amet, pretium at lorem."
-        },
-        {
-          "name": "Lorem ipsum dolor",
-          "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida velit suscipit, consequat urna a, tincidunt dolor. Mauris ultricies ex id venenatis auctor. Proin tortor neque, commodo eget orci at, rutrum rhoncus nunc. Mauris sem libero, sagittis aliquam pretium sit amet, pretium at lorem."
-        }
-      ],
-      "aboutDSCLink": "https://dscloremipsum.com/",
-      "cocInfo": "Ut posuere efficitur auctor. In hendrerit, ligula at fringilla maximus, lectus felis aliquam enim, vitae sollicitudin tellus nulla ut nisl. Fusce vel fermentum leo. Aenean pretium metus nec ante rhoncus placerat. Vivamus viverra leo vitae lacus eleifend tincidunt eget et ante. Curabitur et scelerisque risus. Duis ut purus ipsum. Proin egestas odio tortor, quis consectetur urna malesuada at. Quisque et turpis vehicula, sollicitudin diam at, sodales tellus. Proin malesuada dolor at tincidunt tincidunt. Cras porta eu enim at rhoncus. Donec quis arcu hendrerit, cursus ipsum id, pretium odio. Vivamus vel auctor dolor, nec convallis urna. In mi lorem, elementum nec tristique non, tempus a diam.",
-      "becomeMemberURL": "https://dscloremipsum.com/",
-      "socials": [
-        {
-          "name": "Twitter",
-          "icon": "fab fa-twitter",
-          "link": "https://twitter.com/"
-        },
-        {
-          "name": "Instagram",
-          "icon": "fab fa-instagram",
-          "link": "https://instagram.com/"
-        },
-        {
-          "name": "Linkedin",
-          "icon": "fab fa-linkedin",
-          "link": "https://linkedin.com/"
-        },
-        {
-          "name": "Github",
-          "icon": "fab fa-github",
-          "link": "https://github.com/"
-        }
-      ],
-      "tags": [
-        "lorem",
-        "ipsum",
-        "dolor"
-      ]
+  "name": "DSC Lorem Ipsum",
+  "email": "lorem@ipsum.com",
+  "twitter": "https://twitter.com/",
+  "instagram": "https://instagram.com/",
+  "github": "https://github.com/",
+  "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida velit suscipit, consequat urna a, tincidunt dolor. Mauris ultricies ex id venenatis auctor. Proin tortor neque, commodo eget orci at, rutrum rhoncus nunc.",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida velit suscipit, consequat urna a, tincidunt dolor. Mauris ultricies ex id venenatis auctor. Proin tortor neque, commodo eget orci at, rutrum rhoncus nunc. Mauris sem libero, sagittis aliquam pretium sit amet, pretium at lorem. Aenean rhoncus leo quis aliquet vulputate. Proin dignissim vestibulum augue, at consectetur felis placerat ut. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur vel dui vel nulla vulputate ultrices sed sit amet enim. Curabitur venenatis sodales tellus, eget vestibulum urna euismod non. Integer lobortis placerat tellus, quis lobortis mi porttitor sed. Duis efficitur tempus est et feugiat. Mauris lacus sapien, malesuada eget ultrices eu, pellentesque sit amet purus. Aliquam nec dui at ligula porttitor tristique id ac dui.",
+  "about": "Developer Student Clubs are university based community groups for students interested in Google developer technologies. Students from all undergraduate or graduate programs with an interest in growing as a developer are welcome. By joining a DSC, students grow their knowledge in a peer-to-peer learning environment and build solutions for local businesses and their community.",
+  "coc": [
+    {
+      "name": "Lorem ipsum dolor",
+      "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida velit suscipit, consequat urna a, tincidunt dolor. Mauris ultricies ex id venenatis auctor. Proin tortor neque, commodo eget orci at, rutrum rhoncus nunc. Mauris sem libero, sagittis aliquam pretium sit amet, pretium at lorem."
+    },
+    {
+      "name": "Lorem ipsum dolor",
+      "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida velit suscipit, consequat urna a, tincidunt dolor. Mauris ultricies ex id venenatis auctor. Proin tortor neque, commodo eget orci at, rutrum rhoncus nunc. Mauris sem libero, sagittis aliquam pretium sit amet, pretium at lorem."
+    },
+    {
+      "name": "Lorem ipsum dolor",
+      "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida velit suscipit, consequat urna a, tincidunt dolor. Mauris ultricies ex id venenatis auctor. Proin tortor neque, commodo eget orci at, rutrum rhoncus nunc. Mauris sem libero, sagittis aliquam pretium sit amet, pretium at lorem."
+    },
+    {
+      "name": "Lorem ipsum dolor",
+      "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida velit suscipit, consequat urna a, tincidunt dolor. Mauris ultricies ex id venenatis auctor. Proin tortor neque, commodo eget orci at, rutrum rhoncus nunc. Mauris sem libero, sagittis aliquam pretium sit amet, pretium at lorem."
+    },
+    {
+      "name": "Lorem ipsum dolor",
+      "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida velit suscipit, consequat urna a, tincidunt dolor. Mauris ultricies ex id venenatis auctor. Proin tortor neque, commodo eget orci at, rutrum rhoncus nunc. Mauris sem libero, sagittis aliquam pretium sit amet, pretium at lorem."
+    },
+    {
+      "name": "Lorem ipsum dolor",
+      "des": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida velit suscipit, consequat urna a, tincidunt dolor. Mauris ultricies ex id venenatis auctor. Proin tortor neque, commodo eget orci at, rutrum rhoncus nunc. Mauris sem libero, sagittis aliquam pretium sit amet, pretium at lorem."
     }
-  }
+  ],
+  "aboutDSCLink": "https://dscloremipsum.com/",
+  "cocInfo": "Ut posuere efficitur auctor. In hendrerit, ligula at fringilla maximus, lectus felis aliquam enim, vitae sollicitudin tellus nulla ut nisl. Fusce vel fermentum leo. Aenean pretium metus nec ante rhoncus placerat. Vivamus viverra leo vitae lacus eleifend tincidunt eget et ante. Curabitur et scelerisque risus. Duis ut purus ipsum. Proin egestas odio tortor, quis consectetur urna malesuada at. Quisque et turpis vehicula, sollicitudin diam at, sodales tellus. Proin malesuada dolor at tincidunt tincidunt. Cras porta eu enim at rhoncus. Donec quis arcu hendrerit, cursus ipsum id, pretium odio. Vivamus vel auctor dolor, nec convallis urna. In mi lorem, elementum nec tristique non, tempus a diam.",
+  "becomeMemberURL": "https://dscloremipsum.com/",
+  "socials": [
+    {
+      "name": "Twitter",
+      "icon": "fab fa-twitter",
+      "link": "https://twitter.com/"
+    },
+    {
+      "name": "Instagram",
+      "icon": "fab fa-instagram",
+      "link": "https://instagram.com/"
+    },
+    {
+      "name": "Linkedin",
+      "icon": "fab fa-linkedin",
+      "link": "https://linkedin.com/"
+    },
+    {
+      "name": "Github",
+      "icon": "fab fa-github",
+      "link": "https://github.com/"
+    }
+  ],
+  "tags": ["lorem", "ipsum", "dolor"]
 }

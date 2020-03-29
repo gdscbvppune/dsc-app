@@ -98,7 +98,8 @@ class GoogleSignInButton extends StatelessWidget {
             style: GoogleFonts.roboto(
                 fontSize: 18.0,
                 fontWeight: FontWeight.w500,
-                color: Colors.white),
+                color: Colors.white,
+            ),
           ),
         ),
         Padding(
