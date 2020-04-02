@@ -51,10 +51,6 @@ class _LoginPageState extends State<LoginPage> {
                   child: _loginButton(),
                 ),
               ),
-              Visibility(
-                visible: _visible,
-                child: LinearProgressIndicator(),
-              ),
             ],
           ),
         ),
@@ -64,6 +60,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _loginButton() {
     return GoogleSignInButton(
+      visible: _visible,
       onPressed: () async {
         showProgress();
         bool res = await AuthProvider().signInWithGoogle();
@@ -78,9 +75,27 @@ class GoogleSignInButton extends StatelessWidget {
   final String text;
   final double borderRadius;
   final VoidCallback onPressed;
+  final bool visible;
 
-  GoogleSignInButton(
-      {this.onPressed, this.text = 'Sign in with', this.borderRadius = 3.0});
+  GoogleSignInButton({
+    this.onPressed,
+    this.text = 'Sign in with',
+    this.borderRadius = 3.0,
+    this.visible = false,
+  });
+
+  Widget progressImage() {
+    return visible
+        ? Padding(
+            padding: EdgeInsets.all(5.0),
+            child: CircularProgressIndicator(),
+          )
+        : Image(
+            image: AssetImage("assets/logos/google_logo.png"),
+            height: 20.0,
+            width: 20.0,
+          );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,9 +111,9 @@ class GoogleSignInButton extends StatelessWidget {
           child: Text(
             text,
             style: GoogleFonts.roboto(
-                fontSize: 18.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.white,
+              fontSize: 18.0,
+              fontWeight: FontWeight.w500,
+              color: Colors.white,
             ),
           ),
         ),
@@ -112,11 +127,7 @@ class GoogleSignInButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(this.borderRadius),
             ),
             child: Center(
-              child: Image(
-                image: AssetImage("assets/logos/google_logo.png"),
-                height: 18.0,
-                width: 18.0,
-              ),
+              child: progressImage(),
             ),
           ),
         ),
