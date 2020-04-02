@@ -51,52 +51,87 @@ class _PageHandlerState extends State<PageHandler> {
 
     return Scaffold(
       appBar: AppBar(
-          title:
-              Text(_pageTitle, style: GoogleFonts.roboto(color: Colors.black)),
+          title: Text(
+            _pageTitle,
+            style: GoogleFonts.roboto(
+                color: Colors.black, fontWeight: FontWeight.w600),
+          ),
           elevation: 10.0,
           backgroundColor: Colors.grey[200],
           iconTheme: new IconThemeData(color: Colors.black)),
       body: _pageSwitch(_page),
       drawer: Drawer(
         child: new ListView(
+          padding: EdgeInsets.zero,
           children: <Widget>[
             UserAccountsDrawerHeader(
-              accountName: Text(name),
-              accountEmail: Text(email),
+              accountName: Text(
+                name,
+                style: GoogleFonts.roboto(fontWeight: FontWeight.w600),
+              ),
+              accountEmail: Text(
+                email,
+                style: GoogleFonts.roboto(fontWeight: FontWeight.w600),
+              ),
               currentAccountPicture: CircleAvatar(
                 backgroundImage: NetworkImage(imageUrl),
               ),
             ),
             ListTile(
-                leading: Icon(Icons.home),
-                title: Text("Home"),
-                onTap: () {
-                  _pageSelect(Pages.HOME, "Home");
-                }),
+              leading: Icon(Icons.home),
+              title: Text(
+                "Home",
+                style: GoogleFonts.roboto(fontWeight: FontWeight.w600),
+              ),
+              onTap: () {
+                _pageSelect(Pages.HOME, "Home");
+              },
+              selected: _page == Pages.HOME,
+            ),
             ListTile(
-                leading: Icon(Icons.event),
-                title: Text("Events"),
-                onTap: () {
-                  _pageSelect(Pages.EVENTS, "Events");
-                }),
+              leading: Icon(Icons.event),
+              title: Text(
+                "Events",
+                style: GoogleFonts.roboto(fontWeight: FontWeight.w600),
+              ),
+              onTap: () {
+                _pageSelect(Pages.EVENTS, "Events");
+              },
+              selected: _page == Pages.EVENTS,
+            ),
             ListTile(
               leading: Icon(Icons.people),
-              title: Text("Team"),
+              title: Text(
+                "Team",
+                style: GoogleFonts.roboto(fontWeight: FontWeight.w600),
+              ),
               onTap: () {
                 _pageSelect(Pages.TEAM, "Team");
-              }
+              },
+              selected: _page == Pages.TEAM,
             ),
             ListTile(
               leading: Icon(Icons.receipt),
-              title: Text("Code of Conduct"),
+              title: Text(
+                "Code of Conduct",
+                style: GoogleFonts.roboto(fontWeight: FontWeight.w600),
+              ),
               onTap: () {
                 _pageSelect(Pages.COC, "Code of Conduct");
-              }
+              },
+              selected: _page == Pages.COC,
             ),
             Divider(thickness: 1.0),
             ListTile(
-              leading: Icon(Icons.exit_to_app),
-              title: Text("Logout"),
+              leading: Icon(
+                Icons.exit_to_app,
+                color: Colors.red,
+              ),
+              title: Text(
+                "Logout",
+                style: GoogleFonts.roboto(
+                    color: Colors.red, fontWeight: FontWeight.w600),
+              ),
               onTap: () {
                 Navigator.pop(context);
                 _logOutAlert();

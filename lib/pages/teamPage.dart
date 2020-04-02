@@ -12,6 +12,18 @@ class TeamPage extends StatefulWidget {
 class _TeamPageState extends State<TeamPage> {
   final databaseReference = Firestore.instance;
 
+  Future<bool> checkDelete(DismissDirection direction) async {
+          return showDialog(context: context,
+        builder: (context)=>AlertDialog(title: Text("Do you want to remove this member ?"),
+        actions: <Widget>[
+          FlatButton(child: Text("Yes"), onPressed: () => Navigator.pop(context,true)),
+          FlatButton(child: Text("No"), onPressed: () => Navigator.pop(context,false))
+        ],
+        ),
+
+        )?? false;
+      }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,11 +46,12 @@ class _TeamPageState extends State<TeamPage> {
                           color: Colors.blue,
                         ),
                         key: Key(snapshot.data.documents[index].documentID),
+                        confirmDismiss: (direction) => checkDelete(direction),
                         onDismissed: (direction){
                           Firestore.instance.collection("teams").document(snapshot.data.documents[index].documentID).delete();
                           var snackBar = SnackBar(
                             content: Text(
-                              "Team Member Deleted"
+                              "Team Member Removed"
                             ),
                             duration: Duration(
                               seconds: 2

@@ -60,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _loginButton() {
     return GoogleSignInButton(
-      visible: _visible,
+      progressVisible: _visible,
       onPressed: () async {
         showProgress();
         bool res = await AuthProvider().signInWithGoogle();
@@ -75,17 +75,17 @@ class GoogleSignInButton extends StatelessWidget {
   final String text;
   final double borderRadius;
   final VoidCallback onPressed;
-  final bool visible;
+  final bool progressVisible;
 
   GoogleSignInButton({
     this.onPressed,
     this.text = 'Sign in with',
     this.borderRadius = 3.0,
-    this.visible = false,
+    this.progressVisible = false,
   });
 
   Widget progressImage() {
-    return visible
+    return progressVisible
         ? Padding(
             padding: EdgeInsets.all(5.0),
             child: CircularProgressIndicator(),

@@ -23,10 +23,10 @@ class EventsPageState extends State<EventsPage>{
   }
     Future<bool> checkDelete(DismissDirection direction) async {
           return showDialog(context: context,
-        builder: (context)=>AlertDialog(title: Text("Do you want to delete this event"),
+        builder: (context)=>AlertDialog(title: Text("Do you want to delete this event ?"),
         actions: <Widget>[
-          FlatButton(child: Text("Yes"),onPressed:()=> Navigator.pop(context,true) ,),
-          FlatButton(child: Text("No"),onPressed: ()=>Navigator.pop(context,false),)
+          FlatButton(child: Text("Yes"), onPressed: () => Navigator.pop(context,true)),
+          FlatButton(child: Text("No"), onPressed: () => Navigator.pop(context,false))
         ],
         ),
 

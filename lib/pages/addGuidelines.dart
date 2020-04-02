@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class AddGuidelines extends StatefulWidget {
   final String pageTitle, title, description;
   final int index;
-  List listOfGuidelines = List();
+  final List listOfGuidelines;
   AddGuidelines({this.pageTitle, this.title, this.description, this.listOfGuidelines, this.index});
 
   @override
@@ -34,85 +34,87 @@ class _AddGuidelinesState extends State<AddGuidelines> {
         ),
         centerTitle: true,
       ),
-      body: Column(
-        children: <Widget>[
-          SizedBox(
-            height: 64,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 32),
-            child: TextFormField(
-              focusNode: titleFocusNode,
-              autocorrect: false,
-              autofocus: true,
-              controller: titleController,
-              onFieldSubmitted: (val){
-                titleController.text = val;
-              },
-              onEditingComplete: (){
-                titleFocusNode.unfocus();
-                FocusScope.of(context).requestFocus(valueFocusNode);
-              },
-              decoration: InputDecoration(
-                suffix: Text(
-                  "*"
-                ),
-                suffixStyle: TextStyle(
-                  color: Colors.red
-                ),
-                labelText: "Title"
-              ),
-              keyboardType: TextInputType.text,
-              textInputAction: TextInputAction.next,
-              textCapitalization: TextCapitalization.sentences,
-              validator: (value){
-                if(value.isEmpty){
-                  return 'This field is mandatory';
-                }
-                return null;
-              },
+      body: SingleChildScrollView(
+              child: Column(
+          children: <Widget>[
+            SizedBox(
+              height: 64,
             ),
-          ),
-          SizedBox(
-            height: 32,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 32),
-            child: TextFormField(
-              focusNode: valueFocusNode,
-              autocorrect: false,
-              controller: valueController,
-              onFieldSubmitted: (val){
-                valueController.text = val;
-              },
-              onEditingComplete: (){
-                valueFocusNode.unfocus();
-              },
-              decoration: InputDecoration(
-                suffix: Text(
-                  "*"
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 32),
+              child: TextFormField(
+                focusNode: titleFocusNode,
+                autocorrect: false,
+                autofocus: true,
+                controller: titleController,
+                onFieldSubmitted: (val){
+                  titleController.text = val;
+                },
+                onEditingComplete: (){
+                  titleFocusNode.unfocus();
+                  FocusScope.of(context).requestFocus(valueFocusNode);
+                },
+                decoration: InputDecoration(
+                  suffix: Text(
+                    "*"
+                  ),
+                  suffixStyle: TextStyle(
+                    color: Colors.red
+                  ),
+                  labelText: "Title"
                 ),
-                suffixStyle: TextStyle(
-                  color: Colors.red
-                ),
-                labelText: "Description"
+                keyboardType: TextInputType.text,
+                textInputAction: TextInputAction.next,
+                textCapitalization: TextCapitalization.sentences,
+                validator: (value){
+                  if(value.isEmpty){
+                    return 'This field is mandatory';
+                  }
+                  return null;
+                },
               ),
-              keyboardType: TextInputType.multiline,
-              maxLines: null,
-              textInputAction: TextInputAction.done,
-              textCapitalization: TextCapitalization.sentences,
-              validator: (value){
-                if(value.isEmpty){
-                  return 'This field is mandatory';
-                }
-                return null;
-              },
             ),
-          ),
-          SizedBox(
-            height: 64,
-          )
-        ],
+            SizedBox(
+              height: 32,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 32),
+              child: TextFormField(
+                focusNode: valueFocusNode,
+                autocorrect: false,
+                controller: valueController,
+                onFieldSubmitted: (val){
+                  valueController.text = val;
+                },
+                onEditingComplete: (){
+                  valueFocusNode.unfocus();
+                },
+                decoration: InputDecoration(
+                  suffix: Text(
+                    "*"
+                  ),
+                  suffixStyle: TextStyle(
+                    color: Colors.red
+                  ),
+                  labelText: "Description"
+                ),
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
+                textInputAction: TextInputAction.done,
+                textCapitalization: TextCapitalization.sentences,
+                validator: (value){
+                  if(value.isEmpty){
+                    return 'This field is mandatory';
+                  }
+                  return null;
+                },
+              ),
+            ),
+            SizedBox(
+              height: 64,
+            )
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async{

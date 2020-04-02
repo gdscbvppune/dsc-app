@@ -34,6 +34,18 @@ class _ManageCommunityGuidelinesScreenState extends State<ManageCommunityGuideli
     }
   }
 
+  Future<bool> checkDelete(DismissDirection direction) async {
+          return showDialog(context: context,
+        builder: (context)=>AlertDialog(title: Text("Do you want to delete this guideline ?"),
+        actions: <Widget>[
+          FlatButton(child: Text("Yes"), onPressed: () => Navigator.pop(context,true)),
+          FlatButton(child: Text("No"), onPressed: () => Navigator.pop(context,false))
+        ],
+        ),
+
+        )?? false;
+      }
+
   @override
   void initState() {
     fetchCOC();
@@ -70,6 +82,7 @@ class _ManageCommunityGuidelinesScreenState extends State<ManageCommunityGuideli
                 background: Container(
                   color: Colors.blue,
                 ),
+                confirmDismiss: (direction) => checkDelete(direction),
                 onDismissed: (direction) async{
                   listOfGuidelines.removeAt(index);
                   updatedGuidelinesList.removeAt(index);
