@@ -80,10 +80,13 @@ class _TeamPageState extends State<TeamPage> {
                             );
                           },
                           child: ListTile(
-                            leading: CircleAvatar(
-                              radius: 24,
-                              backgroundImage: NetworkImage(
-                                snapshot.data.documents[index]["profileImage"]
+                            leading: ClipOval(
+                              child: FadeInImage.assetNetwork(
+                                height: 100,
+                                width: 55,
+                                fit: BoxFit.cover,
+                                placeholder: "assets/images/cogs.gif",
+                                image: snapshot.data.documents[index]["profileImage"],
                               ),
                             ),
                             title: Text(

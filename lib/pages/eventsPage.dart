@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -97,39 +98,44 @@ class EventsPageState extends State<EventsPage>{
                               clipBehavior: Clip.antiAliasWithSaveLayer,
                               child: Stack(
                                 children: <Widget>[
-                                  Image.network(
-                                    snapshot.data.documents[index]["eventPosterURL"],
-                                    fit: BoxFit.fitWidth,
-                                    width: MediaQuery.of(context).size.width - 20,
+                                  FadeInImage.assetNetwork(
                                     height: MediaQuery.of(context).size.height / 5,
+                                    width: MediaQuery.of(context).size.width - 20,
+                                    fit: BoxFit.fitWidth,
+                                    placeholder: "assets/images/cogs.gif",
+                                    image: snapshot.data.documents[index]["eventPosterURL"],
                                   ),
                                   Container(
                                     color: Colors.black38,
                                   ),
                                   Positioned(
-                                    bottom: 12,
-                                    left: 12,
+                                    bottom: 5,
+                                    left: 5,
                                     child: FittedBox(
                                       child: Column(
                                         children: <Widget>[
                                           ClipRRect(
-                                            borderRadius: BorderRadius.circular(12),
-                                            child: Container(
-                                              color: Colors.blue[200],
-                                              child: Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                  vertical: 8,
-                                                  horizontal: 12
-                                                ),
-                                                child: Text(
-                                                  snapshot.data.documents[index]["title"],
-                                                  style: GoogleFonts.openSans(
-                                                    textStyle: TextStyle(
-                                                      fontSize: 16,
-                                                    )
+                                            borderRadius: BorderRadius.circular(10),
+                                            child: BackdropFilter(
+                                              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                                              child: Container(
+                                                decoration: BoxDecoration(color: Colors.black.withOpacity(0.4)),
+                                                //color: Colors.blue[200],
+                                                child: Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                    vertical: 8,
+                                                    horizontal: 12
                                                   ),
-                                                ),
-                                              )
+                                                  child: Text(
+                                                    snapshot.data.documents[index]["title"],
+                                                    style: GoogleFonts.openSans(
+                                                      textStyle: TextStyle(color: Colors.white,
+                                                        fontSize: 16,
+                                                      )
+                                                    ),
+                                                  ),
+                                                )
+                                              ),
                                             )
                                           ),
                                         ],

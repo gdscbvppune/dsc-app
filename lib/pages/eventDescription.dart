@@ -33,11 +33,12 @@ class _EventDescriptionState extends State<EventDescription> {
               },
               child: Hero(
                 tag: 'image',
-                child: Image.network(
-                  widget.eventPosterURL,
-                  fit: BoxFit.fitWidth,
+                child: FadeInImage.assetNetwork(
+                  height: MediaQuery.of(context).size.height / 2.5,
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height / 2.5
+                  fit: BoxFit.fitWidth,
+                  placeholder: "assets/images/cogs.gif",
+                  image: widget.eventPosterURL,
                 ),
               ),
             ),

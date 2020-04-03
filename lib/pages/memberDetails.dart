@@ -44,16 +44,19 @@ class _MemberDetailsState extends State<MemberDetails> {
                 },
                 child: Hero(
                   tag: 'image',
-                  child: CircleAvatar(
-                    radius: 64,
-                    backgroundImage: NetworkImage(
-                      widget.imgURL
+                  child: ClipOval(
+                    child: FadeInImage.assetNetwork(
+                      height: 150,
+                      width: 150,
+                      fit: BoxFit.cover,
+                      placeholder: "assets/images/cogs.gif",
+                      image: widget.imgURL,
                     ),
                   ),
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height / 10,
+                height: MediaQuery.of(context).size.height / 15,
               ),
               Text(
                 widget.name,
