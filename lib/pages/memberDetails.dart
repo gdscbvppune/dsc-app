@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'addMember.dart';
+import 'imageExpand.dart';
 
 class MemberDetails extends StatefulWidget {
   final String imgURL, name, instagramLink, twitterLink, githubLink, websiteLink, linkedinLink, orderID, team, title;
@@ -35,10 +36,20 @@ class _MemberDetailsState extends State<MemberDetails> {
               SizedBox(
                 height: MediaQuery.of(context).size.height / 10,
               ),
-              CircleAvatar(
-                radius: 64,
-                backgroundImage: NetworkImage(
-                  widget.imgURL
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) {
+                    return ImageExpand(imageURL: widget.imgURL);
+                  }));
+                },
+                child: Hero(
+                  tag: 'image',
+                  child: CircleAvatar(
+                    radius: 64,
+                    backgroundImage: NetworkImage(
+                      widget.imgURL
+                    ),
+                  ),
                 ),
               ),
               SizedBox(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'addEvent.dart';
+import 'imageExpand.dart';
 
 class EventDescription extends StatefulWidget {
   final speaker, eventName, eventDate, eventTimings, registrationLink, desc, eventPosterURL, featured, venue;
@@ -24,11 +25,21 @@ class _EventDescriptionState extends State<EventDescription> {
         padding: EdgeInsets.only(bottom: 10.0),
         child: Column(
           children: <Widget>[
-            Image.network(
-              widget.eventPosterURL,
-              fit: BoxFit.fitWidth,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height / 2.5
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) {
+                  return ImageExpand(imageURL: widget.eventPosterURL);
+                }));
+              },
+              child: Hero(
+                tag: 'image',
+                child: Image.network(
+                  widget.eventPosterURL,
+                  fit: BoxFit.fitWidth,
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height / 2.5
+                ),
+              ),
             ),
             SizedBox(
               height: 20,
