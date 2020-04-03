@@ -19,17 +19,13 @@ class _MemberDetailsState extends State<MemberDetails> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: InkWell(
-          onTap: (){
-            Navigator.pop(context);
-          },
-          child: Padding(
-            padding: EdgeInsets.all(24),
-            child: Icon(
-              Icons.chevron_left,
-              color: Colors.black,
-            ),
-          )
+        leading: IconButton(
+          alignment: Alignment.bottomRight,
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(
+            Icons.chevron_left,
+            color: Colors.black,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -118,7 +114,7 @@ class _MemberDetailsState extends State<MemberDetails> {
                         child: Icon(
                           FontAwesomeIcons.instagram,
                           size: 24,
-                          color: Colors.red,
+                          color: Colors.redAccent,
                         ),
                       ),
                     ) : Text(""),

@@ -21,56 +21,79 @@ class _EventDescriptionState extends State<EventDescription> {
         ),
       ),
       body: SingleChildScrollView(
+        padding: EdgeInsets.only(bottom: 10.0),
         child: Column(
           children: <Widget>[
             Image.network(
               widget.eventPosterURL,
               fit: BoxFit.fitWidth,
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height / 4
+              height: MediaQuery.of(context).size.height / 2.5
             ),
             SizedBox(
               height: 20,
             ),
-            Text(
-              widget.eventName,
-              style: GoogleFonts.raleway(
-                textStyle: TextStyle(
-                  fontSize: 28
-                )
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 12
+            ),
+              child: Text(
+                widget.eventName,
+                style: GoogleFonts.raleway(
+                  textStyle: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ),
             ),
             SizedBox(
               height: 15,
             ),
             Text(
-              widget.eventDate + " " + widget.eventTimings,
+              widget.eventDate + "  |  " + widget.eventTimings,
               style: GoogleFonts.openSans(
                 textStyle: TextStyle(
                   fontSize: 15
-                )
+                ),
               ),
             ),
             SizedBox(
               height: 15,
             ),
-            Text(
-              widget.venue,
-              style: GoogleFonts.openSans(
-                textStyle: TextStyle(
-                  fontSize: 15
-                )
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: 12
+              ),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Venue - " + widget.venue,
+                  style: GoogleFonts.openSans(
+                    textStyle: TextStyle(
+                        fontSize: 15
+                    ),
+                  ),
+                ),
               ),
             ),
             SizedBox(
               height: 15,
             ),
-            Text(
-              "Speaker - " + widget.speaker,
-              style: GoogleFonts.openSans(
-                textStyle: TextStyle(
-                  fontSize: 15
-                )
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: 12
+              ),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Speaker - " + widget.speaker,
+                  style: GoogleFonts.openSans(
+                    textStyle: TextStyle(
+                        fontSize: 15
+                    ),
+                  ),
+                ),
               ),
             ),
             SizedBox(
@@ -78,15 +101,15 @@ class _EventDescriptionState extends State<EventDescription> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: 12
+                  horizontal: 12
               ),
               child: Text(
                 widget.desc,
                 style: GoogleFonts.openSans(
                   textStyle: TextStyle(
-                    fontSize: 15
-                  )
-                )
+                      fontSize: 15
+                  ),
+                ),
               ),
             ),
             SizedBox(
@@ -99,11 +122,11 @@ class _EventDescriptionState extends State<EventDescription> {
                   launch(url);
                 }
               },
-              icon: Icon(Icons.attachment),
+              icon: Icon(Icons.link),
               label: Text(
                 "Registration Link"
-              )
-            )
+              ),
+            ),
           ],
         ),
       ),
