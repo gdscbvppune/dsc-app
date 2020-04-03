@@ -31,6 +31,7 @@ This project aims at making websites easier to manage. We at **DSC BVP Pune** no
 | **Built using Flutter** | The App is built exclusively in Flutter, while the adjoining website is built using Vue.js |
 | **Portability**         | This Web-App can be used as a template by other Student Clubs                              |
 | **User Experience**     | User-friendly and reliable, as well as handy and easy to use                               |
+| **Auto Initialize**     | App automatically initalizes databases for un-initialized and/or new DSC websites          |
 | **Powered by Firebase** | Cloud Firestore of Firebase provides solutions for storage issues                          |
 
 ## Getting Started
@@ -129,6 +130,7 @@ dsc
 │   │   ├── eventDescription.dart
 │   │   ├── eventsPage.dart
 │   │   ├── homePage.dart
+│   │   ├── imageExpand.dart
 │   │   ├── loginPage.dart
 │   │   ├── manageCOC.dart
 │   │   ├── memberDetails.dart
@@ -147,28 +149,29 @@ dsc
 
 #### Function of each file
 
-| File                                                       | Function                                                 |
-| ---------------------------------------------------------- | -------------------------------------------------------- |
-| [achievementsPage.dart](/lib/pages/achievementsPage.dart)  | Displaying achievements of DSC (WIP)                     |
-| [addEvent.dart](/lib/pages/addGuidelines.dart)             | Page for adding events                                   |
-| [addGuidelines.dart](/lib/pages/addGuidelines.dart)        | Page for adding guidelines for your DSC                  |
-| [addMember.dart](/lib/pages/addMember.dart)                | Page for adding team members of your DSC                 |
-| [cocPage.dart](/lib/pages/cocPage.dart)                    | Code of Conduct page of your DSC                         |
-| [editHomePage.dart](/lib/pages/editHomePage.dart)          | Page for editing homepage of your DSC's website          |
-| [eventDescription.dart](/lib/pages/eventDescription.dart)  | Description page for events                              |
-| [eventsPage.dart](/lib/pages/eventsPage.dart)              | Pages for displaying all events of your DSC              |
-| [homePage.dart](/lib/pages/homePage.dart)                  | Home page of the app                                     |
-| [loginPage.dart](/lib/pages/loginPage.dart)                | Login page of the app for signing-in with google         |
-| [manageCOC.dart](/lib/pages/manageCOC.dart)                | Page for altering code of conduct of your DSC            |
-| [memberDetails.dart](/lib/pages/memberDetails.dart)        | Adding details of your team                              |
-| [splashPage.dart](/lib/pages/splashPage.dart)              | Temporary loading page with circular progress indicator  |
-| [teamPage.dart](/lib/pages/teamPage.dart)                  | Page for displaying your DSC                             |
-| [authHandler.dart](/lib/services/authHandler.dart)         | Dart file for user auth detection                        |
-| [authService.dart](/lib/services/authService.dart)         | Dart file for google and firebase login                  |
-| [buttonBuilder.dart](/lib/services/buttonBuilder.dart)     | Dart file for building stretchable raised buttons        |
-| [databaseHandler.dart](/lib/services/databaseHandler.dart) | Dart file for handling databases for both wesite and app |
-| [pageHandler.dart](/lib/services/pageHandler.dart)         | Dart file for handling navigation of pages               |
-| [main.dart](/lib/main.dart)                                | Entry point of the material app that calls authHandler   |
+| File                                                       | Function                                                  |
+| ---------------------------------------------------------- | --------------------------------------------------------- |
+| [achievementsPage.dart](/lib/pages/achievementsPage.dart)  | Displaying achievements of DSC (WIP)                      |
+| [addEvent.dart](/lib/pages/addGuidelines.dart)             | Page for adding events                                    |
+| [addGuidelines.dart](/lib/pages/addGuidelines.dart)        | Page for adding guidelines for your DSC                   |
+| [addMember.dart](/lib/pages/addMember.dart)                | Page for adding team members of your DSC                  |
+| [cocPage.dart](/lib/pages/cocPage.dart)                    | Code of Conduct page of your DSC                          |
+| [editHomePage.dart](/lib/pages/editHomePage.dart)          | Page for editing homepage of your DSC's website           |
+| [eventDescription.dart](/lib/pages/eventDescription.dart)  | Description page for events                               |
+| [eventsPage.dart](/lib/pages/eventsPage.dart)              | Pages for displaying all events of your DSC               |
+| [homePage.dart](/lib/pages/homePage.dart)                  | Home page of the app                                      |
+| [imageExpand.dart](/lib/pages/imageExpand.dart)            | Page to display expanded view of an image asset           |
+| [loginPage.dart](/lib/pages/loginPage.dart)                | Login page of the app for signing-in with google          |
+| [manageCOC.dart](/lib/pages/manageCOC.dart)                | Page for altering code of conduct of your DSC             |
+| [memberDetails.dart](/lib/pages/memberDetails.dart)        | Adding details of your team                               |
+| [splashPage.dart](/lib/pages/splashPage.dart)              | Temporary loading page with circular progress indicator   |
+| [teamPage.dart](/lib/pages/teamPage.dart)                  | Page for displaying your DSC                              |
+| [authHandler.dart](/lib/services/authHandler.dart)         | Dart file for user auth detection                         |
+| [authService.dart](/lib/services/authService.dart)         | Dart file for google and firebase login                   |
+| [buttonBuilder.dart](/lib/services/buttonBuilder.dart)     | Dart file for building stretchable raised buttons         |
+| [databaseHandler.dart](/lib/services/databaseHandler.dart) | Dart file for handling databases for both website and app |
+| [pageHandler.dart](/lib/services/pageHandler.dart)         | Dart file for handling navigation of pages                |
+| [main.dart](/lib/main.dart)                                | Entry point of the material app that calls authHandler    |
 
 ## Contributors
 
