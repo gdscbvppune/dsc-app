@@ -36,54 +36,11 @@ This project aims at making websites easier to manage. We at **DSC BVP Pune** no
 
 ## Getting Started
 
-1. [Fork](https://github.com/dscbvppune/dsc/fork) our repository and clone it locally.
-2. Open the repo in [VSCode](https://code.visualstudio.com/) or [Android Studio](https://developer.android.com/studio).
-3. Open [Firebase Console](https://console.firebase.google.com/) and create a new project.
-4. Connect your mobile-app project, either Android or iOS, with Firebase.
-5. For Android refer to Firebase docs: [Add Firebase to your Android project](https://firebase.google.com/docs/android/setup?authuser=0).
-6. For iOS refer to the Firebase docs: [Add Firebase to your iOS project](https://firebase.google.com/docs/ios/setup?authuser=0).
-7. After setup has been done, Connect your phone to PC or MAC via USB.
-8. Build the application in the IDE which you use for Flutter development or run `flutter run --release` on your console.
-9. For setting up Firestore refer to the documentation below.
-10. Great! Now your app is ready to go.
-11. Enter the gmail ID of your DSC(admin) account that will have create, delete and update rights.
-12. Add details of your team members, events organized by your DSC and the Code of Conduct of your DSC.
-13. For Android users: If you want to build the apk: Run `flutter build apk --release` in your console.
-14. For iOS users : Run 'flutter build ios' in your console of Xcode. Refer [Create a build archive](https://flutter.dev/docs/deployment/ios#create-a-build-archive) for detailed info.
+See here - [getting-started.md](/docs/getting-started.md)
 
-### Setting up on Firestore
+### Setting up on Cloud Firestore
 
-#### Setting security rules on Firestore
-
-Create a Firestore Database in production mode, and add the following security rules to the database, to add authentication for only specific people to be able to update details on Firestore:
-
-```
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read;
-      allow create, write, update, delete: if request.auth.token.email.matches("dscchapteremailaddress[@]gmail[.]com");
-    }
-  }
-}
-```
-
-#### Setting security rules on Firebase Storage
-
-Enable the Firebase Storage, and add the following security rules to the database, to add authentication for only specific people to be able to add / update media to the storage bucket:
-
-```
-rules_version = '2';
-service firebase.storage {
-  match /b/{bucket}/o {
-    match /{allPaths=**} {
-      allow read;
-      allow write, create, delete, update: if request.auth.token.email.matches("dscchapteremailaddress[@]gmail[.]com");
-    }
-  }
-}
-```
+See here - [cloud-firestore.md](/docs/cloud-firestore.md)
 
 ## Technology Stacks
 
