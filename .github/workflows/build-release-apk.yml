@@ -1,0 +1,96 @@
+name: APK Build/Release CI
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setting up JAVA ...
+        uses: actions/setup-java@v1.3.0
+        with:
+          java-version: "12.x"
+
+      - name: Generating debug.keystore ...
+        shell: bash
+        run: |
+          mkdir ~/.android
+          keytool -genkey -dname "cn=YOUR_NAME, ou=ORGANIZATION_UNIT, o=ORGANIZATION_NAME, l=LOCALITY_NAME, st=STATE_NAME, c=COUNTRY_CODE" -keystore ~/.android/debug.keystore -storepass android -alias AndroidDebugKey -keyalg RSA -keysize 4096 -validity 10000 -v
+
+      - name: Saving SHA1 hash in a text file ...
+        shell: bash
+        run: |
+          keytool -list -v -keystore ~/.android/debug.keystore -alias AndroidDebugKey -storepass android -keypass android | grep "SHA1" > ./SHA1.txt
+          ls -a
+          pwd
+
+      - name: Setting-up Flutter ...
+        uses: subosito/flutter-action@v1.2.0
+        with:
+          channel: "stable"
+
+      - name: Checking out repository ...
+        uses: actions/checkout@v2
+
+      - name: Building release apk ...
+        shell: bash
+        run: |
+          flutter doctor -v
+          flutter pub get
+          flutter build apk --release
+
+      - name: Uploading APK artifact ...
+        uses: actions/upload-artifact@v2-preview
+        with:
+          name: dsc-app-release
+          path: ./build/app/outputs/apk/release/
+
+      - name: Generating changelog ...
+        id: changelog
+        uses: metcalfc/changelog-generator@v0.2.3
+        with:
+          myToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Creating Release ...
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: ${{ steps.changelog.outputs.changelog }}
+          draft: false
+          prerelease: false
+
+      - name: Uploading Release APK Asset ...
+        id: upload-apk-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/app/outputs/apk/release/app-release.apk
+          asset_name: apk-release.apk
+          asset_content_type: application/apk
+
+      - name: Saving SHA1 hash in a text file ...
+        shell: bash
+        run: |
+          keytool -list -v -keystore ~/.android/debug.keystore -alias AndroidDebugKey -storepass android -keypass android | grep "SHA1" > ./SHA1.txt
+          ls -a
+          pwd
+
+      - name: Uploading SHA1 Asset ...
+        id: upload-SHA1-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: /home/runner/work/test-dsc-app/test-dsc-app/SHA1.txt
+          asset_name: SHA1.txt
+          asset_content_type: file/text
