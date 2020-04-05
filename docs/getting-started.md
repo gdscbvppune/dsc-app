@@ -13,8 +13,9 @@
 3. Change it in `./android/app/src/debug/AndroidManifest.xml`.
 4. Change it in `./android/app/src/main/AndroidManifest.xml`.
 5. Change the directory tree in `./android/app/src/main/kotlin/` folder -
-> > **Before -** `./android/app/src/main/kotlin/team/dscbvppune/dsc/MainActivity.kt`
-> > **After -** `./android/app/src/main/kotlin/{your_website_domain}/{your_website_name}/{app_name}/MainActivity.kt`
+>> **Before -** `./android/app/src/main/kotlin/team/dscbvppune/dsc/MainActivity.kt`
+>
+>> **After -** `./android/app/src/main/kotlin/{your_website_domain}/{your_website_name}/{app_name}/MainActivity.kt`
 6. Change it in `./android/app/src/main/kotlin/{your_website_domain}/{your_website_name}/{app_name}/MainActivity.kt`.
 
 ### ~> Setting-up CI Workflow :
