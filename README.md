@@ -1,17 +1,11 @@
-<h1 align="center"><span><h3>DSC Web-App</h3></span>
-<div align="center">
-<a href="https://flutter.dev/">
-<img src="https://img.shields.io/badge/Built with-flutter-blue?style=flat-square" alt="flutter"/>
-</a>
-<span>|</span>
-<a href="https://github.com/dscbvppune/dsc/commits/master/">
-<img src="https://img.shields.io/github/last-commit/dscbvppune/dsc?style=flat-square" alt="last commit"/>
-</a>
-<span>|</span>
-<a href="https://github.com/dscbvppune/dsc/blob/master/LICENSE">
-<img src="https://img.shields.io/badge/License-MIT-purple?style=flat-square" alt="license"/>
-</a>
-</div>
+<h1 align="center">
+  <span><h3>DSC Web-App</h3></span>
+
+  <p align="center">
+    <a href="https://flutter.dev/"><img src="https://img.shields.io/badge/Built with-flutter-blue?style=for-the-badge" alt="flutter"/></a>
+    <a href="https://github.com/dscbvppune/dsc/commits/master/"><img src="https://img.shields.io/github/last-commit/dscbvppune/dsc?style=for-the-badge" alt="last commit"/></a>
+    <a href="https://github.com/dscbvppune/dsc/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-MIT-purple?style=for-the-badge" alt="license"/></a>
+  </p>
 </h1>
 
 <p align="center">
@@ -19,6 +13,8 @@
 <img src="/docs/images/home1.png" width="34%" alt="home"/>
 <img src="/docs/images/coc.png" width="32%" alt="code of conduct"/>
 </p>
+
+-----
 
 ## Overview
 
@@ -175,12 +171,48 @@ dsc
 
 ## Contributors
 
-| Name              | Nickname                                          | E-Mail                                                                |
-| ----------------- | ------------------------------------------------- | --------------------------------------------------------------------- |
-| Abhishek Dubey    | [Abhi011999](https://github.com/Abhi011999)       | [abhi.dubey011999@gmail.com](mailto:abhi.dubey011999@gmail.com)       |
-| Nishchay Verma    | [Nishchayverma](https://github.com/Nishchayverma) | [nishchayverma20@gmail.com](mailto:nishchayverma20@gmail.com)         |
-| Priyanshu Agarwal | [priyanshu-01](https://github.com/priyanshu-01)   | [priyanshu.agarwal88@gmail.com](mailto:priyanshu.agarwal88@gmail.com) |
-| Sparsh Tandon     | [codesparsh](https://github.com/codesparsh)       | [snowmansparsh4@gmail.com](mailto:snowmansparsh4@gmail.com)           |
+<table>
+<tbody>
+  <tr width="100%">
+    <td align="center">
+      <a href="https://github.com/Abhi011999">
+        <img width="150" src="https://avatars2.githubusercontent.com/u/27683952?s=400&v=4"><br>
+        @Abhi011999
+      </a> <br>
+      <strong>Abhishek Dubey</strong><br>
+      &bull; &bull; &bull;<br>
+      <a href="mailto:abhi.dubey011999@gmail.com">E-Mail</a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Nishchayverma">
+        <img width="150" src="https://avatars1.githubusercontent.com/u/55492465?s=400&v=4"><br>
+        @Nishchayverma
+      </a> <br>
+      <strong>Nishchay Verma</strong><br>
+      &bull; &bull; &bull;<br>
+      <a href="mailto:nishchayverma20@gmail.com">E-Mail</a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/priyanshu-01">
+        <img width="150" src="https://avatars3.githubusercontent.com/u/56172661?s=400&v=4"><br>
+        @priyanshu-01
+      </a> <br>
+      <strong>Priyanshu Agarwal</strong><br>
+      &bull; &bull; &bull;<br>
+      <a href="mailto:priyanshu.agarwal88@gmail.com">E-Mail</a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/codesparsh">
+        <img width="150" src="https://avatars2.githubusercontent.com/u/43840499?s=400&v=4"><br>
+        @codesparsh
+      </a> <br>
+      <strong>Sparsh Tandon</strong><br>
+      &bull; &bull; &bull;<br>
+      <a href="mailto:snowmansparsh4@gmail.com">E-Mail</a>
+    </td>
+  </tr>
+</tbody>
+</table>
 
 ## Contributing
 
