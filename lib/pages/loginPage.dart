@@ -12,6 +12,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage>
     with AfterLayoutMixin<LoginPage> {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   bool _isProgressVisible = false;
   bool _isButtonDisabled = false;
   bool _isBackgroundVisible = false;
@@ -28,6 +30,36 @@ class _LoginPageState extends State<LoginPage>
     });
   }
 
+  void _showSnackBar() {
+    _scaffoldKey.currentState.showSnackBar(SnackBar(
+      content: Text(
+        "An error occured !",
+        style: TextStyle(color: Colors.black),
+      ),
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.white,
+    ));
+  }
+
+  Widget _loginButton() {
+    return GoogleSignInButton(
+      progressVisible: _isProgressVisible,
+      onPressed: _isButtonDisabled
+          ? null
+          : () async {
+              _toggleButtonVisibility();
+              _toggleProgressVisibility();
+              if (!await AuthProvider().signInWithGoogle()) {
+                _toggleButtonVisibility();
+                _toggleProgressVisibility();
+                print("Error logging in with google !");
+                _showSnackBar();
+              }
+            },
+      borderRadius: 20.0,
+    );
+  }
+
   @override
   void afterFirstLayout(BuildContext context) {
     setState(() {
@@ -38,6 +70,7 @@ class _LoginPageState extends State<LoginPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       body: Stack(
         alignment: Alignment.center,
         fit: StackFit.expand,
@@ -85,25 +118,6 @@ class _LoginPageState extends State<LoginPage>
           ),
         ],
       ),
-    );
-  }
-
-  Widget _loginButton() {
-    return GoogleSignInButton(
-      progressVisible: _isProgressVisible,
-      onPressed: _isButtonDisabled
-          ? null
-          : () async {
-              _toggleButtonVisibility();
-              _toggleProgressVisibility();
-              bool res = await AuthProvider().signInWithGoogle();
-              if (!res) {
-                _toggleButtonVisibility();
-                _toggleProgressVisibility();
-                print("Error logging in with google");
-              }
-            },
-      borderRadius: 20.0,
     );
   }
 }
