@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'authService.dart';
 import 'authHandler.dart';
 import '../pages/homePage.dart';
@@ -58,10 +59,17 @@ class _PageHandlerState extends State<PageHandler> {
           ),
           elevation: 10.0,
           backgroundColor: Colors.grey[200],
-          iconTheme: new IconThemeData(color: Colors.black)),
-      body: _pageSwitch(_page),
+          iconTheme: IconThemeData(color: Colors.black)),
+      body: DoubleBackToCloseApp(
+        snackBar: SnackBar(
+          content: Text("Tap back again to exit"),
+          behavior: SnackBarBehavior.floating,
+          duration: Duration(seconds: 2),
+        ),
+        child: _pageSwitch(_page),
+      ),
       drawer: Drawer(
-        child: new ListView(
+        child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
             UserAccountsDrawerHeader(

@@ -23,6 +23,7 @@ dependencies:
   image_picker: any
   firebase_storage: any
   after_layout: ^1.0.7+2
+  double_back_to_close_app: ^1.2.0
 
 dev_dependencies:
   flutter_test:

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:after_layout/after_layout.dart';
+import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import '../services/authService.dart';
 import '../services/buttonBuilder.dart';
 
@@ -30,15 +31,16 @@ class _LoginPageState extends State<LoginPage>
     });
   }
 
-  void _showSnackBar() {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
+  Widget _showSnackBar(text) {
+    return SnackBar(
       content: Text(
-        "An error occured !",
+        text,
         style: TextStyle(color: Colors.black),
       ),
       behavior: SnackBarBehavior.floating,
       backgroundColor: Colors.white,
-    ));
+      duration: Duration(seconds: 2),
+    );
   }
 
   Widget _loginButton() {
@@ -53,7 +55,8 @@ class _LoginPageState extends State<LoginPage>
                 _toggleButtonVisibility();
                 _toggleProgressVisibility();
                 print("Error logging in with google !");
-                _showSnackBar();
+                _scaffoldKey.currentState.showSnackBar(_showSnackBar("An error occured !"));
+                //_showSnackBar("An error occured !");
               }
             },
       borderRadius: 20.0,
@@ -71,52 +74,55 @@ class _LoginPageState extends State<LoginPage>
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      body: Stack(
-        alignment: Alignment.center,
-        fit: StackFit.expand,
-        children: <Widget>[
-          Positioned.fill(
-              child: Image.asset(
-            "assets/images/dsc_login_background.jpg",
-            fit: BoxFit.cover,
-          )),
-          Container(
-            color: Colors.black.withOpacity(0.65),
-            child: SingleChildScrollView(
-              child: AnimatedOpacity(
-                opacity: _isBackgroundVisible ? 1.0 : 0.0,
-                duration: Duration(milliseconds: 1000),
-                curve: Curves.easeOut,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    SizedBox(height: 35.0),
-                    SvgPicture.asset(
-                      "assets/svg/gdglogo.svg",
-                      height: 400.0,
-                    ),
-                    AnimatedContainer(
-                      height: _isBackgroundVisible ? 120.0 : 0.0,
-                      duration: Duration(milliseconds: 1500),
-                      curve: Curves.fastLinearToSlowEaseIn,
-                      child: Text(
-                        "Developer\nStudent\nClubs",
-                        style: GoogleFonts.lato(
-                          letterSpacing: 1.5,
-                          fontSize: 30.0,
-                          color: Colors.white,
+      body: DoubleBackToCloseApp(
+        snackBar: _showSnackBar("Tap back again to exit"),
+        child: Stack(
+          alignment: Alignment.center,
+          fit: StackFit.expand,
+          children: <Widget>[
+            Positioned.fill(
+                child: Image.asset(
+              "assets/images/dsc_login_background.jpg",
+              fit: BoxFit.cover,
+            )),
+            Container(
+              color: Colors.black.withOpacity(0.65),
+              child: SingleChildScrollView(
+                child: AnimatedOpacity(
+                  opacity: _isBackgroundVisible ? 1.0 : 0.0,
+                  duration: Duration(milliseconds: 1000),
+                  curve: Curves.easeOut,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      SizedBox(height: 35.0),
+                      SvgPicture.asset(
+                        "assets/svg/gdglogo.svg",
+                        height: 400.0,
+                      ),
+                      AnimatedContainer(
+                        height: _isBackgroundVisible ? 120.0 : 0.0,
+                        duration: Duration(milliseconds: 1500),
+                        curve: Curves.fastLinearToSlowEaseIn,
+                        child: Text(
+                          "Developer\nStudent\nClubs",
+                          style: GoogleFonts.lato(
+                            letterSpacing: 1.5,
+                            fontSize: 30.0,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: 50.0),
-                    _loginButton(),
-                    SizedBox(height: 50.0),
-                  ],
+                      SizedBox(height: 50.0),
+                      _loginButton(),
+                      SizedBox(height: 50.0),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
