@@ -14,7 +14,7 @@ class TeamPage extends StatefulWidget {
 class _TeamPageState extends State<TeamPage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  Future<bool> checkDelete(DismissDirection direction) async {
+  Future<bool> _confirmDismiss(DismissDirection direction) async {
     return showDialog(
           context: context,
           builder: (context) => AlertDialog(
@@ -75,7 +75,7 @@ class _TeamPageState extends State<TeamPage> {
                           color: Colors.white,
                         ),
                       ),
-                      confirmDismiss: (direction) => checkDelete(direction),
+                      confirmDismiss: (direction) => _confirmDismiss(direction),
                       onDismissed: (direction) => _removeMember(snapshot, index),
                       child: InkWell(
                         onTap: () {
