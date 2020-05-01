@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class ImageExpand extends StatelessWidget {
   final imageURL;
@@ -12,8 +13,10 @@ class ImageExpand extends StatelessWidget {
         child: Center(
           child: Hero(
             tag: 'image',
-            child: Image.network(
-              imageURL,
+            child: CachedNetworkImage(
+              imageUrl: imageURL,
+              progressIndicatorBuilder: (context, url, downloadProgress) => CircularProgressIndicator(value: downloadProgress.progress),
+              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
           ),
         ),
