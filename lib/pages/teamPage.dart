@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'addMember.dart';
 import 'memberDetails.dart';
@@ -69,7 +70,8 @@ class _TeamPageState extends State<TeamPage> {
                         alignment: Alignment.centerRight,
                         color: Colors.red,
                         child: Icon(
-                          Icons.remove_circle,
+                          FontAwesomeIcons.userSlash,
+                          size: 20.0,
                           color: Colors.white,
                         ),
                       ),

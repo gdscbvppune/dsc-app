@@ -29,7 +29,7 @@ class EventsPageState extends State<EventsPage> {
     return showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text(direction == DismissDirection.startToEnd ? "Do you want to feature this event ?" : "Do you want to delete this event ?"),
+            title: Text(direction == DismissDirection.startToEnd ? _checkFeatured(snapshot, index) ? "Do you want to remove this event as featured ?" : "Do you want to feature this event ?" : "Do you want to delete this event ?"),
             actions: <Widget>[
               FlatButton(
                   child: Text("Yes"),
@@ -37,10 +37,8 @@ class EventsPageState extends State<EventsPage> {
                     if (direction == DismissDirection.startToEnd) {
                       _featureEvent(snapshot, index);
                       Navigator.pop(context, false);
-                    } else {
+                    } else
                       Navigator.pop(context, true);
-                      _deleteEvent(snapshot, index);
-                    }
                   }),
               FlatButton(
                 child: Text("No"),
@@ -55,13 +53,14 @@ class EventsPageState extends State<EventsPage> {
   void _featureEvent(snapshot, index) async {
     try {
       if (_checkFeatured(snapshot, index)) {
-        _showSnackBar("Event is already featured !");
-        return;
+        await Firestore.instance.collection("events").document(snapshot.data.documents[index].documentID).updateData({"featureEvent": false});
+        _showSnackBar("Event removed from featured !");
+      } else {
+        await Firestore.instance.collection("events").document(snapshot.data.documents[index].documentID).updateData({"featureEvent": true});
+        _showSnackBar("Event is featured now !");
       }
-      await Firestore.instance.collection("events").document(snapshot.data.documents[index].documentID).updateData({"featureEvent": true});
-      _showSnackBar("Event is featured now !");
     } catch (e) {
-      _showSnackBar("An error occured in featuring the event");
+      _showSnackBar("An error occured in un/featuring the event");
     }
   }
 
@@ -70,6 +69,7 @@ class EventsPageState extends State<EventsPage> {
       await Firestore.instance.collection("events").document(snapshot.data.documents[index].documentID).delete();
       await FirebaseStorage.instance.ref().child("events").child(snapshot.data.documents[index]["title"]).delete();
       _showSnackBar("Event Deleted !");
+      Navigator.pop(context, true);
     } catch (e) {
       _showSnackBar("An error occured in deleting the event");
     }
@@ -106,7 +106,7 @@ class EventsPageState extends State<EventsPage> {
                         alignment: Alignment.centerLeft,
                         color: Colors.blue,
                         child: Icon(
-                          Icons.star,
+                          _checkFeatured(snapshot, index) ? Icons.star_border : Icons.star,
                           size: 30.0,
                           color: Colors.white,
                         ),
@@ -122,6 +122,7 @@ class EventsPageState extends State<EventsPage> {
                         ),
                       ),
                       confirmDismiss: (direction) => _confirmDismiss(direction, snapshot, index),
+                      onDismissed: (direction) => _deleteEvent(snapshot, index),
                       child: LimitedBox(
                         maxHeight: MediaQuery.of(context).size.height / 5,
                         child: Stack(
