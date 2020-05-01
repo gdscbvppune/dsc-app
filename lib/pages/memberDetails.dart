@@ -2,18 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'addMember.dart';
 import 'imageExpand.dart';
 
 class MemberDetails extends StatefulWidget {
-  final String imgURL, name, instagramLink, twitterLink, githubLink, websiteLink, linkedinLink, orderID, team, title;
   MemberDetails({this.name, this.instagramLink, this.team, this.title, this.githubLink, this.imgURL, this.linkedinLink, this.orderID, this.twitterLink, this.websiteLink});
+
+  final String imgURL, name, instagramLink, twitterLink, githubLink, websiteLink, linkedinLink, orderID, team, title;
 
   @override
   _MemberDetailsState createState() => _MemberDetailsState();
 }
 
 class _MemberDetailsState extends State<MemberDetails> {
+  Widget _socialLinks(link, icon, color) {
+    return InkWell(
+      onTap: () async {
+        if (await canLaunch(link)) {
+          launch(link);
+        }
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Icon(
+          icon,
+          size: 25,
+          color: color,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,14 +42,15 @@ class _MemberDetailsState extends State<MemberDetails> {
         backgroundColor: Colors.transparent,
         leading: IconButton(
           alignment: Alignment.bottomRight,
-          onPressed: () => Navigator.pop(context),
           icon: Icon(
             Icons.chevron_left,
             color: Colors.black,
           ),
+          onPressed: () => Navigator.pop(context),
         ),
       ),
       body: SingleChildScrollView(
+        padding: EdgeInsets.only(bottom: 20.0),
         child: Center(
           child: Column(
             children: <Widget>[
@@ -38,19 +59,18 @@ class _MemberDetailsState extends State<MemberDetails> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) {
-                    return ImageExpand(imageURL: widget.imgURL);
-                  }));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => ImageExpand(imageURL: widget.imgURL)));
                 },
                 child: Hero(
                   tag: 'image',
                   child: ClipOval(
-                    child: FadeInImage.assetNetwork(
-                      height: 150,
-                      width: 150,
+                    child: CachedNetworkImage(
+                      width: 150.0,
+                      height: 150.0,
                       fit: BoxFit.cover,
-                      placeholder: "assets/images/cogs.gif",
-                      image: widget.imgURL,
+                      imageUrl: widget.imgURL,
+                      progressIndicatorBuilder: (context, url, downloadProgress) => CircularProgressIndicator(value: downloadProgress.progress),
+                      errorWidget: (context, url, error) => Icon(Icons.error),
                     ),
                   ),
                 ),
@@ -60,126 +80,39 @@ class _MemberDetailsState extends State<MemberDetails> {
               ),
               Text(
                 widget.name,
-                style: GoogleFonts.montserrat(
-                  fontSize: 32,
-                  color: Colors.black
-                ),
+                style: GoogleFonts.montserrat(fontSize: 32),
               ),
               SizedBox(
                 height: 20,
               ),
               Text(
                 widget.title,
-                style: GoogleFonts.raleway(
-                  fontSize: 24,
-                  color: Colors.black
-                ),
+                style: GoogleFonts.raleway(fontSize: 24),
               ),
               SizedBox(
                 height: 32,
               ),
-              Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    widget.githubLink.length > 0 ? InkWell(
-                      onTap: () async{
-                        if(await canLaunch(widget.githubLink)){
-                          launch(widget.githubLink);
-                        }
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(
-                          FontAwesomeIcons.github,
-                          size: 24
-                        ),
-                      ),
-                    ) : Text(""),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    widget.websiteLink.length > 0 ? InkWell(
-                      onTap: () async{
-                        if(await canLaunch(widget.websiteLink)){
-                          launch(widget.websiteLink);
-                        }
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(
-                          FontAwesomeIcons.chrome,
-                          size: 24,
-                          color: Color(0xFFde5246),
-                        ),
-                      ),
-                    ) : Text(""),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    widget.instagramLink.length > 0 ? InkWell(
-                      onTap: () async{
-                        if(await canLaunch(widget.instagramLink)){
-                          launch(widget.instagramLink);
-                        }
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(
-                          FontAwesomeIcons.instagram,
-                          size: 24,
-                          color: Colors.redAccent,
-                        ),
-                      ),
-                    ) : Text(""),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    widget.linkedinLink.length > 0 ? InkWell(
-                      onTap: () async{
-                        if(await canLaunch(widget.linkedinLink)){
-                          launch(widget.linkedinLink);
-                        }
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(
-                          FontAwesomeIcons.linkedinIn,
-                          size: 24,
-                          color: Color(0xFF0072b1),
-                        ),
-                      ),
-                    ) : Text(""),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    widget.twitterLink.length > 0 ? InkWell(
-                      onTap: () async{
-                        if(await canLaunch(widget.twitterLink)){
-                          launch(widget.twitterLink);
-                        }
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Icon(
-                          FontAwesomeIcons.twitter,
-                          size: 24,
-                          color: Color(0xFF00acee),
-                        ),
-                      ),
-                    ) : Text(""),
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  widget.githubLink.length > 0 ? _socialLinks(widget.githubLink, FontAwesomeIcons.github, Color(0xFF000000)) : SizedBox(),
+                  SizedBox(width: 12.0),
+                  widget.websiteLink.length > 0 ? _socialLinks(widget.websiteLink, FontAwesomeIcons.chrome, Color(0xFFDD4337)) : SizedBox(),
+                  SizedBox(width: 12.0),
+                  widget.instagramLink.length > 0 ? _socialLinks(widget.instagramLink, FontAwesomeIcons.instagram, Color(0xFFCA2257)) : SizedBox(),
+                  SizedBox(width: 12.0),
+                  widget.linkedinLink.length > 0 ? _socialLinks(widget.linkedinLink, FontAwesomeIcons.linkedinIn, Color(0xFF0077B5)) : SizedBox(),
+                  SizedBox(width: 12.0),
+                  widget.twitterLink.length > 0 ? _socialLinks(widget.twitterLink, FontAwesomeIcons.twitter, Color(0xFF00A7E7)) : SizedBox(),
+                ],
               ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height / 10,
-              )
             ],
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
+        child: Icon(Icons.edit),
+        onPressed: () {
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -195,11 +128,10 @@ class _MemberDetailsState extends State<MemberDetails> {
                 team: widget.team,
                 title: widget.title,
                 memberImgUrl: widget.imgURL,
-              )
-            )
+              ),
+            ),
           );
         },
-        child: Icon(Icons.edit),
       ),
     );
   }

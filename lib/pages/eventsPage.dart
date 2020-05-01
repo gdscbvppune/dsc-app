@@ -216,6 +216,7 @@ class EventsPageState extends State<EventsPage> {
                   "Please add events",
                   style: GoogleFonts.lato(
                     textStyle: TextStyle(fontSize: 24),
+                    fontWeight: FontWeight.w300,
                   ),
                 ),
               );
