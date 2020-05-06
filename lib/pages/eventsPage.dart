@@ -97,7 +97,7 @@ class EventsPageState extends State<EventsPage> {
                 itemCount: snapshot.data.documents.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Card(
-                    clipBehavior: Clip.antiAlias,
+                    clipBehavior: Clip.hardEdge,
                     elevation: 3.0,
                     child: Dismissible(
                       key: Key(snapshot.data.documents[index].documentID),
@@ -175,7 +175,7 @@ class EventsPageState extends State<EventsPage> {
                               bottom: 0,
                               left: 0,
                               child: ClipRRect(
-                                clipBehavior: Clip.antiAlias,
+                                clipBehavior: Clip.hardEdge,
                                 borderRadius: BorderRadius.only(topRight: Radius.circular(10.0)),
                                 child: BackdropFilter(
                                   filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),

@@ -61,7 +61,7 @@ class _TeamPageState extends State<TeamPage> {
                 itemCount: snapshot.data.documents.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Card(
-                    clipBehavior: Clip.antiAlias,
+                    clipBehavior: Clip.hardEdge,
                     child: Dismissible(
                       key: Key(snapshot.data.documents[index].documentID),
                       direction: DismissDirection.endToStart,
@@ -98,7 +98,7 @@ class _TeamPageState extends State<TeamPage> {
                         },
                         child: ListTile(
                           leading: ClipOval(
-                            clipBehavior: Clip.antiAlias,
+                            clipBehavior: Clip.hardEdge,
                             child: CachedNetworkImage(
                               width: 55.0,
                               height: 100.0,

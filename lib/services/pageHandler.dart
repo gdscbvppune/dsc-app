@@ -279,7 +279,7 @@ class _PageHandlerState extends State<PageHandler> {
                     itemCount: 4,
                     itemBuilder: (context, i) {
                       return Material(
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        clipBehavior: Clip.hardEdge,
                         color: _page == Pages.values[i] ? _colors[i].withOpacity(0.25) : Colors.transparent,
                         borderRadius: BorderRadius.horizontal(right: Radius.circular(100.0)),
                         child: ListTile(
