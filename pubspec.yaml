@@ -1,7 +1,7 @@
 name: dsc
 description: A mobile app to help update and manage your DSC website easily
 
-version: 1.0.0+1
+version: 2.0.0+1
 
 environment:
   sdk: ">=2.2.2 <3.0.0"
