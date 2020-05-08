@@ -98,7 +98,7 @@ class _TeamPageState extends State<TeamPage> {
                         },
                         child: ListTile(
                           leading: ClipOval(
-                            clipBehavior: Clip.hardEdge,
+                            clipBehavior: Clip.antiAlias,
                             child: CachedNetworkImage(
                               width: 55.0,
                               height: 100.0,

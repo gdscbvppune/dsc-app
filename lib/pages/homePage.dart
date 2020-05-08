@@ -28,6 +28,9 @@ class _HomePageState extends State<HomePage> {
       ).whenComplete(() => getDetails());
     }
 
+    // Intentional delay until a fix for jerkiness is found.
+    await Future.delayed(Duration(seconds: 1));
+
     details = await ref.collection("details").document("details").get();
 
     for (var i in details["tags"]) {

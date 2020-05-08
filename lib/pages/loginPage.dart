@@ -11,24 +11,20 @@ class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage>
-    with AfterLayoutMixin<LoginPage> {
+class _LoginPageState extends State<LoginPage> with AfterLayoutMixin<LoginPage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   bool _isProgressVisible = false;
   bool _isButtonDisabled = false;
   bool _isBackgroundVisible = false;
+  bool _isTitleVisible = false;
 
   void _toggleProgressVisibility() {
-    setState(() {
-      _isProgressVisible = !_isProgressVisible;
-    });
+    setState(() => _isProgressVisible = !_isProgressVisible);
   }
 
   void _toggleButtonVisibility() {
-    setState(() {
-      _isButtonDisabled = !_isButtonDisabled;
-    });
+    setState(() => _isButtonDisabled = !_isButtonDisabled);
   }
 
   Widget _showSnackBar(text) {
@@ -46,6 +42,7 @@ class _LoginPageState extends State<LoginPage>
   Widget _loginButton() {
     return GoogleSignInButton(
       progressVisible: _isProgressVisible,
+      borderRadius: 20.0,
       onPressed: _isButtonDisabled
           ? null
           : () async {
@@ -56,18 +53,14 @@ class _LoginPageState extends State<LoginPage>
                 _toggleProgressVisibility();
                 print("Error logging in with google !");
                 _scaffoldKey.currentState.showSnackBar(_showSnackBar("An error occured !"));
-                //_showSnackBar("An error occured !");
               }
             },
-      borderRadius: 20.0,
     );
   }
 
   @override
   void afterFirstLayout(BuildContext context) {
-    setState(() {
-      _isBackgroundVisible = !_isBackgroundVisible;
-    });
+    setState(() => _isBackgroundVisible = !_isBackgroundVisible);
   }
 
   @override
@@ -81,43 +74,53 @@ class _LoginPageState extends State<LoginPage>
           fit: StackFit.expand,
           children: <Widget>[
             Positioned.fill(
-                child: Image.asset(
-              "assets/images/dsc_login_background.jpg",
-              fit: BoxFit.cover,
-            )),
+              child: Image.asset(
+                "assets/images/dsc_login_background.jpg",
+                fit: BoxFit.cover,
+              ),
+            ),
             Container(
               color: Colors.black.withOpacity(0.65),
               child: SingleChildScrollView(
-                child: AnimatedOpacity(
-                  opacity: _isBackgroundVisible ? 1.0 : 0.0,
-                  duration: Duration(milliseconds: 1000),
-                  curve: Curves.easeOut,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      SizedBox(height: 35.0),
-                      SvgPicture.asset(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    SizedBox(height: 35.0),
+                    AnimatedOpacity(
+                      opacity: _isBackgroundVisible ? 1.0 : 0.0,
+                      duration: Duration(milliseconds: 1000),
+                      curve: Curves.fastOutSlowIn,
+                      child: SvgPicture.asset(
                         "assets/svg/gdglogo.svg",
                         height: 400.0,
                       ),
-                      AnimatedContainer(
-                        height: _isBackgroundVisible ? 120.0 : 0.0,
-                        duration: Duration(milliseconds: 1500),
-                        curve: Curves.fastLinearToSlowEaseIn,
-                        child: Text(
-                          "Developer\nStudent\nClubs",
-                          style: GoogleFonts.lato(
-                            letterSpacing: 1.5,
-                            fontSize: 30.0,
-                            color: Colors.white,
-                          ),
+                      onEnd: () => setState(() => _isTitleVisible = !_isTitleVisible),
+                    ),
+                    AnimatedContainer(
+                      height: _isTitleVisible ? 120.0 : 0.0,
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.fastOutSlowIn,
+                      child: Text(
+                        "Developer\nStudent\nClubs",
+                        style: GoogleFonts.lato(
+                          letterSpacing: 1.5,
+                          fontSize: 30.0,
+                          color: Colors.white,
                         ),
                       ),
-                      SizedBox(height: 50.0),
-                      _loginButton(),
-                      SizedBox(height: 50.0),
-                    ],
-                  ),
+                    ),
+                    AnimatedOpacity(
+                      opacity: _isTitleVisible ? 1.0 : 0.0,
+                      duration: Duration(milliseconds: 1500),
+                      curve: Curves.fastOutSlowIn,
+                      child: AnimatedPadding(
+                        padding: _isTitleVisible ? EdgeInsets.symmetric(vertical: 50.0) : EdgeInsets.zero,
+                        duration: Duration(milliseconds: 1500),
+                        curve: Curves.fastOutSlowIn,
+                        child: _loginButton(),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

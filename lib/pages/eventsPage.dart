@@ -97,7 +97,7 @@ class EventsPageState extends State<EventsPage> {
                 itemCount: snapshot.data.documents.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Card(
-                    clipBehavior: Clip.hardEdge,
+                    clipBehavior: Clip.antiAlias,
                     elevation: 3.0,
                     child: Dismissible(
                       key: Key(snapshot.data.documents[index].documentID),
@@ -174,27 +174,21 @@ class EventsPageState extends State<EventsPage> {
                             Positioned(
                               bottom: 0,
                               left: 0,
-                              child: ClipRRect(
-                                clipBehavior: Clip.hardEdge,
-                                borderRadius: BorderRadius.only(topRight: Radius.circular(10.0)),
-                                child: BackdropFilter(
-                                  filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(0.45),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-                                      child: LimitedBox(
-                                        maxWidth: MediaQuery.of(context).size.width / 1.2,
-                                        child: Text(
-                                          snapshot.data.documents[index]["title"],
-                                          style: GoogleFonts.lato(
-                                            textStyle: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 16,
-                                            ),
-                                          ),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.black.withOpacity(0.65),
+                                  borderRadius: BorderRadius.only(topRight: Radius.circular(10.0)),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                                  child: LimitedBox(
+                                    maxWidth: MediaQuery.of(context).size.width / 1.2,
+                                    child: Text(
+                                      snapshot.data.documents[index]["title"],
+                                      style: GoogleFonts.lato(
+                                        textStyle: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16,
                                         ),
                                       ),
                                     ),

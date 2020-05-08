@@ -6,7 +6,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'authService.dart';
-import 'authHandler.dart';
 import '../pages/homePage.dart';
 import '../pages/eventsPage.dart';
 import '../pages/teamPage.dart';
@@ -20,6 +19,12 @@ enum Pages {
 }
 
 class PageHandler extends StatefulWidget {
+  PageHandler(this.name, this.email, this.imageUrl);
+
+  final String name;
+  final String email;
+  final String imageUrl;
+
   @override
   _PageHandlerState createState() => _PageHandlerState();
 }
@@ -58,7 +63,7 @@ class _PageHandlerState extends State<PageHandler> {
           color: Colors.black26,
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: NetworkImage(imageUrl),
+            image: NetworkImage(widget.imageUrl),
           ),
         ),
         child: BackdropFilter(
@@ -78,21 +83,21 @@ class _PageHandlerState extends State<PageHandler> {
                     height: 72.0,
                     child: CircleAvatar(
                       backgroundColor: Colors.black38,
-                      backgroundImage: NetworkImage(imageUrl),
+                      backgroundImage: NetworkImage(widget.imageUrl),
                     ),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 2.0),
                   child: Text(
-                    name,
+                    widget.name,
                     style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 2.0),
                   child: Text(
-                    email,
+                    widget.email,
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
@@ -154,7 +159,7 @@ class _PageHandlerState extends State<PageHandler> {
 
     launchUrl(url) async => await canLaunch(url) ? await launch(url) : throw "Could not launch: $url";
 
-    return showAboutDialog(
+    showAboutDialog(
       context: context,
       applicationIcon: Image(
         height: 60.0,
@@ -241,7 +246,10 @@ class _PageHandlerState extends State<PageHandler> {
           behavior: SnackBarBehavior.floating,
           duration: Duration(seconds: 2),
         ),
-        child: _pageSwitch(_page),
+        child: AnimatedSwitcher(
+          duration: Duration(milliseconds: 500),
+          child: _pageSwitch(_page),
+        ),
       ),
       drawer: Drawer(
         child: Column(
