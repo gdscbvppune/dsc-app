@@ -221,6 +221,7 @@ class EventsPageState extends State<EventsPage> {
               );
           }),
       floatingActionButton: FloatingActionButton(
+        tooltip: "Add Event",
         child: Icon(Icons.add),
         onPressed: () {
           Navigator.push(

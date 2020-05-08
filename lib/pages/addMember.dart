@@ -365,6 +365,7 @@ class _AddMemberState extends State<AddMember> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        tooltip: "Done",
         onPressed: () async {
           var profileImgURL;
           var firebaseStorageRef = FirebaseStorage.instance.ref().child("team");

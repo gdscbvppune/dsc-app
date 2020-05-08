@@ -432,6 +432,7 @@ class _AddEventState extends State<AddEvent> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        tooltip: "Done",
         onPressed: () async{
           var posterURL;
           var firebaseStorageRef = FirebaseStorage.instance.ref().child("events");

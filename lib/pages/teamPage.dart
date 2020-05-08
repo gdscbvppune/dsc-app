@@ -147,6 +147,7 @@ class _TeamPageState extends State<TeamPage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+        tooltip: "Add Member",
         child: Icon(Icons.add),
         onPressed: () {
           Navigator.push(

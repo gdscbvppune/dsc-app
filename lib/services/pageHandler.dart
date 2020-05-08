@@ -112,6 +112,7 @@ class _PageHandlerState extends State<PageHandler> {
   Widget _logOutButton() {
     return IconButton(
       color: Colors.black.withOpacity(0.75),
+      tooltip: "Logout",
       icon: Icon(FontAwesomeIcons.signOutAlt),
       onPressed: () {
         _logOutAlert();
@@ -235,6 +236,7 @@ class _PageHandlerState extends State<PageHandler> {
         ),
         actions: [
           IconButton(
+            tooltip: "About",
             icon: Icon(Icons.info_outline),
             onPressed: () => _aboutDSC(),
           )

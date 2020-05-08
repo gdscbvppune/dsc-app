@@ -117,6 +117,7 @@ class _AddGuidelinesState extends State<AddGuidelines> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        tooltip: "Done",
         onPressed: () async{
           Map<String, dynamic> details = {
             "name": titleController.text,

@@ -140,6 +140,7 @@ class _ManageCommunityGuidelinesScreenState extends State<ManageCommunityGuideli
               },
             ),
       floatingActionButton: FloatingActionButton(
+        tooltip: "Add Guideline",
         child: Icon(Icons.add),
         onPressed: () {
           Navigator.push(

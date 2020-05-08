@@ -306,6 +306,7 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xFF4c8bf5),
+        tooltip: "Edit HomePage",
         onPressed: (){
           Navigator.push(
             context,

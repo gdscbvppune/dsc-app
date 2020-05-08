@@ -309,7 +309,7 @@ class _EditHomePageState extends State<EditHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        heroTag: "Submit Final Details",
+        tooltip: "Done",
         backgroundColor: Color(0xFF4c8bf5),
         onPressed: () async{
           var ref = Firestore.instance;
