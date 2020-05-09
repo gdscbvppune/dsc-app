@@ -9,12 +9,15 @@
 </h1>
 
 <p align="center">
-<img src="/docs/images/events.png" width="32%" alt="events"/>
-<img src="/docs/images/home1.png" width="34%" alt="home"/>
-<img src="/docs/images/coc.png" width="32%" alt="code of conduct"/>
+  <img src="/docs/images/drawer.jpg" width="32%" alt="drawer"/>
+  <img src="/docs/images/home1.jpg" width="34%" alt="home"/>
+  <img src="/docs/images/about.jpg" width="32%" alt="about"/>
+  <img src="/docs/images/events.jpg" width="32%" alt="events"/>
+  <img src="/docs/images/home2.jpg" width="34%" alt="home"/>
+  <img src="/docs/images/coc.jpg" width="32%" alt="code of conduct"/>
 </p>
 
------
+---
 
 ## Overview
 
