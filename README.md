@@ -217,6 +217,10 @@ dsc
 </tbody>
 </table>
 
+## App Usage Information
+
+Hi, there! If you liked this project and are using it for your DSC's community then kindly fill [this](https://github.com/dscbvppune/dsc-app/issues/new?assignees=Abhi011999&labels=usage+info&template=app-usage-information.md&title=%5BINFO%5D) usage info issue and submit it. We'll love to hear your feedback!
+
 ## Contributing
 
 See [CONTRIBUTING.md](/CONTRIBUTING.md)
@@ -224,8 +228,8 @@ See [CONTRIBUTING.md](/CONTRIBUTING.md)
 ## Support
 
 - If you have any issues, feel free to hit us up at [dscbvppune@gmail.com](mailto:dscbvppune@gmail.com).
-- You can also put up queries on GitHub issues [here](https://github.com/dscbvppune/dsc/issues).
+- You can also put up queries on GitHub Issues [here](https://github.com/dscbvppune/dsc-app/issues).
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](/LICENSE) file for details.
+> This project is licensed under the MIT License - see the [LICENSE](/LICENSE) file for details.
