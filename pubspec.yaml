@@ -17,7 +17,7 @@ dependencies:
   progress_dialog: ^1.2.1
   google_fonts: ^0.3.9
   cloud_firestore: ^0.13.4+2
-  flutter_svg: ^0.17.3+1
+  flutter_svg: ^0.18.1
   url_launcher: ^5.4.2
   image_picker: any
   firebase_storage: any
