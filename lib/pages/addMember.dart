@@ -35,12 +35,13 @@ class _AddMemberState extends State<AddMember> {
   FocusNode websiteFocusNode = FocusNode();
   FocusNode orderFocusNode = FocusNode();
 
-  File profileImage;
+  File profileImageFile;
+  final imgPick = ImagePicker();
 
-  Future getImage() async{
-    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+  Future getImage() async {
+    PickedFile pickedImage = await imgPick.getImage(source: ImageSource.gallery);
     setState(() {
-      profileImage = image;
+      profileImageFile = File(pickedImage.path);
     });
   }
 
@@ -369,18 +370,18 @@ class _AddMemberState extends State<AddMember> {
         onPressed: () async {
           var profileImgURL;
           var firebaseStorageRef = FirebaseStorage.instance.ref().child("team");
-          if(widget.memberImgUrl == null && profileImage != null){
+          if(widget.memberImgUrl == null && profileImageFile != null){
             var eventImgRef = firebaseStorageRef.child(nameController.text);
-            StorageUploadTask imgUpload = eventImgRef.putFile(profileImage);
+            StorageUploadTask imgUpload = eventImgRef.putFile(profileImageFile);
             StorageTaskSnapshot tempSnapshot = await imgUpload.onComplete;
             profileImgURL = await tempSnapshot.ref.getDownloadURL();
           }
           else{
-            if(widget.memberImgUrl != null && profileImage != null){
+            if(widget.memberImgUrl != null && profileImageFile != null){
               var eventImgRef = firebaseStorageRef.child(widget.name);
               await eventImgRef.delete();
               var newEventImgRef = firebaseStorageRef.child(nameController.text);
-              StorageUploadTask imgUpload = newEventImgRef.putFile(profileImage);
+              StorageUploadTask imgUpload = newEventImgRef.putFile(profileImageFile);
               StorageTaskSnapshot tempSnapshot = await imgUpload.onComplete;
               profileImgURL = await tempSnapshot.ref.getDownloadURL();
             }

@@ -14,7 +14,6 @@ class AddEvent extends StatefulWidget {
 }
 
 class _AddEventState extends State<AddEvent> {
-
   TextEditingController eventTitleController = TextEditingController();
   TextEditingController eventDateController = TextEditingController();
   TextEditingController eventTimeController = TextEditingController();
@@ -33,13 +32,15 @@ class _AddEventState extends State<AddEvent> {
 
   String featureEventVal = "true";
 
-  File posterImage;
+  File posterImageFile;
+  final imgPick = ImagePicker();
+
   String title, date, time, speaker, desc, registerLink;
 
-  Future getImage() async{
-    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+  Future getImage() async {
+    PickedFile pickedImage = await imgPick.getImage(source: ImageSource.gallery);
     setState(() {
-      posterImage = image;
+      posterImageFile = File(pickedImage.path);
     });
   }
 
@@ -436,18 +437,18 @@ class _AddEventState extends State<AddEvent> {
         onPressed: () async{
           var posterURL;
           var firebaseStorageRef = FirebaseStorage.instance.ref().child("events");
-          if(widget.eventPosterUrl == null && posterImage != null){
+          if(widget.eventPosterUrl == null && posterImageFile != null){
             var eventImgRef = firebaseStorageRef.child(eventTitleController.text);
-            StorageUploadTask imgUpload = eventImgRef.putFile(posterImage);
+            StorageUploadTask imgUpload = eventImgRef.putFile(posterImageFile);
             StorageTaskSnapshot tempSnapshot = await imgUpload.onComplete;
             posterURL = await tempSnapshot.ref.getDownloadURL();
           }
           else{
-            if(widget.eventPosterUrl != null && posterImage != null){
+            if(widget.eventPosterUrl != null && posterImageFile != null){
               var eventImgRef = firebaseStorageRef.child(widget.eventTitle);
               await eventImgRef.delete();
               var newEventImgRef = firebaseStorageRef.child(eventTitleController.text);
-              StorageUploadTask imgUpload = newEventImgRef.putFile(posterImage);
+              StorageUploadTask imgUpload = newEventImgRef.putFile(posterImageFile);
               StorageTaskSnapshot tempSnapshot = await imgUpload.onComplete;
               posterURL = await tempSnapshot.ref.getDownloadURL();
             }
